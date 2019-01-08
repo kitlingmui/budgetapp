@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
 
+
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -18,8 +19,6 @@ const styles = theme => ({
   input: {
     display: 'none',
   },
-
-
 });
 
 class InteractiveGrid extends React.Component {
@@ -39,16 +38,7 @@ class InteractiveGrid extends React.Component {
     const { classes } = this.props;
     const { alignItems, direction, justify } = this.state;
 
-//     const code = `
-// \`\`\`jsx
-// <Grid
-//   container
-//   direction="${direction}"
-//   justify="${justify}"
-//   alignItems="${alignItems}"
-// >
-// \`\`\`
-// `;
+
 
     return (
       <Grid container className={classes.root}>
@@ -64,11 +54,11 @@ class InteractiveGrid extends React.Component {
             <Grid item xs={12}>
             <Grid container spacing={24}>
               <Grid item xs={12}>
-              <div>   
-              <Button variant="contained" color="primary" className={classes.button}>
+               
+              <Button variant="contained" color="secondary" className={classes.button} href='../Account'>
                 Create Account
               </Button>
-            </div>
+           
             </Grid>     
             </Grid>
             </Grid>

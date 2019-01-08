@@ -6,6 +6,7 @@ import Create from './homeComponents/createActBtn.js'
 import InputEmail from './homeComponents/inputFormEmail.js'
 import InputPass from './homeComponents/inputFormPass.js'
 import Terms from './homeComponents/terms.js'
+import Text2 from './homeComponents/text2.js'
 
 class Home extends Component {
   render() {
@@ -13,6 +14,7 @@ class Home extends Component {
       <>
       <Piggy/>
       <Text/>
+      <Text2/>
       <InputEmail/>
       <InputPass/>
       <Login/>

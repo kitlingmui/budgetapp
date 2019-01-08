@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
 
 
 const styles = theme => ({
@@ -10,16 +9,13 @@ const styles = theme => ({
     flexGrow: 1,
   },
   demo: {
-    height: 100,
+    height: 80,
   },
-  button: {
-    margin: theme.spacing.unit,
-  },
-  input: {
-    display: 'none',
+  
+  control: {
+    padding: theme.spacing.unit * 2,
   },
 });
-
 
 class InteractiveGrid extends React.Component {
   state = {
@@ -28,11 +24,6 @@ class InteractiveGrid extends React.Component {
     alignItems: 'center',
   };
 
-  handleChange = key => (event, value) => {
-    this.setState({
-      [key]: value,
-    });
-  };
 
   render() {
     const { classes } = this.props;
@@ -51,22 +42,18 @@ class InteractiveGrid extends React.Component {
             direction={direction}
             justify={justify}
           >
-            <Grid item xs={12}>
-            <Grid container spacing={24}>
               <Grid item xs={12}>
-            <div>   
-              <Button variant="contained" color="primary" className={classes.button}>
-                Sign in
-              </Button>
-            </div>
-            </Grid>     
-            </Grid>
-            </Grid>
-            </Grid>
-        </Grid>
+                  <Grid container spacing={24}>
+                      <Grid item xs={12}>
+                          <div>   
+                            <h1>Budgeting Made Easy.</h1>
+                          </div>
+                      </Grid>     
+                  </Grid>
+              </Grid>
+          </Grid>
       </Grid>
-      
-      
+    </Grid> 
     );
   }
 }
