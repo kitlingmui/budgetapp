@@ -9,7 +9,7 @@ const styles = theme => ({
     flexGrow: 1,
   },
   demo: {
-    height: 100,
+    height: 50,
   },
   
   control: {
@@ -46,7 +46,7 @@ class InteractiveGrid extends React.Component {
                   <Grid container spacing={24}>
                       <Grid item xs={12}>
                           <div>   
-                            <h4>Save More, Budgeting made Easy.</h4>
+                            <h1>Save More,</h1>
                           </div>
                       </Grid>     
                   </Grid>

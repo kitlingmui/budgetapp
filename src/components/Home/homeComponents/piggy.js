@@ -14,6 +14,10 @@ const styles = theme => ({
   control: {
     padding: theme.spacing.unit * 2,
   },
+  dense: {
+    marginTop: 16,
+    padding: theme.spacing.unit * 10
+  },
 });
 
 class InteractiveGrid extends React.Component {
