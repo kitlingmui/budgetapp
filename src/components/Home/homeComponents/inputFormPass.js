@@ -62,17 +62,17 @@ class InteractiveGrid extends React.Component {
               <Grid container spacing={24}>
                 <Grid item xs={12}>
                 <div>   
-                          <form className={classes.container} noValidate autoComplete="off">
-                              <TextField
-                                id="outlined-password-input"
-                                label="Password"
-                                className={classes.textField}
-                                type="password"
-                                autoComplete="current-password"
-                                margin="normal"
-                                variant="outlined"
-                              />
-                            </form>
+                <form className={classes.container} noValidate autoComplete="off">
+        <TextField
+        required
+          id="homePassword"
+          label="Password"
+          className={classes.textField}
+          type="password"
+          autoComplete="current-password"
+          margin="normal"
+        />
+      </form>
                           </div>
               </Grid>     
               </Grid>
