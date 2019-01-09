@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-
+import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 
 const styles = theme => ({
   root: {
@@ -10,8 +11,7 @@ const styles = theme => ({
   },
   demo: {
     height: 50,
-  },
-  
+  }, 
   control: {
     padding: theme.spacing.unit * 2,
   },
@@ -47,6 +47,11 @@ class InteractiveGrid extends React.Component {
                       <Grid item xs={12}>
                           <div>   
                           <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Terms and Conditions</a>
+                          </div>
+                          <div>
+                          <Link to='/MainPage'>
+                            <Button>Skip login</Button>
+                          </Link>
                           </div>
                       </Grid>     
                   </Grid>
