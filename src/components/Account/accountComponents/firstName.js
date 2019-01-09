@@ -1,16 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-
 
 const styles = theme => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+    width: 200,
+  },
+  dense: {
+    marginTop: 19,
+  },
+  menu: {
+    width: 200,
+  },
   root: {
     flexGrow: 1,
   },
   demo: {
-    height: 80,
+    height: 100,
   },
   button: {
     margin: theme.spacing.unit,
@@ -21,16 +35,17 @@ const styles = theme => ({
 });
 
 
-class InteractiveGrid extends React.Component {
+class TextFields extends React.Component {
   state = {
+    name: '',
     direction: 'column',
     justify: 'center',
     alignItems: 'center',
   };
 
-  handleChange = key => (event, value) => {
+  handleChange = name => event => {
     this.setState({
-      [key]: value,
+      [name]: event.target.value,
     });
   };
 
@@ -38,10 +53,8 @@ class InteractiveGrid extends React.Component {
     const { classes } = this.props;
     const { alignItems, direction, justify } = this.state;
 
-
-
     return (
-      <Grid container className={classes.root}>
+        <Grid container className={classes.root}>
         <Grid item xs={12}>
           <Grid
             container
@@ -54,25 +67,31 @@ class InteractiveGrid extends React.Component {
             <Grid item xs={12}>
             <Grid container spacing={24}>
               <Grid item xs={12}>
-            <div>   
-              <Button variant="contained" color="primary" className={classes.button}>
-                Sign in
-              </Button>
-            </div>
+              <form className={classes.container} noValidate autoComplete="off">
+        <TextField
+          required
+          id="first-name"
+          label="First Name"
+          className={classes.textField}
+          value={this.state.name}
+          onChange={this.handleChange('name')}
+          margin="normal"
+        />
+      </form>
             </Grid>     
             </Grid>
             </Grid>
-            </Grid>
+          </Grid>
         </Grid>
       </Grid>
-      
-      
     );
   }
 }
 
-InteractiveGrid.propTypes = {
+TextFields.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(InteractiveGrid);
+export default withStyles(styles)(TextFields);
+
+
