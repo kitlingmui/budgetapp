@@ -70,7 +70,7 @@ class TextFields extends React.Component {
               <form className={classes.container} noValidate autoComplete="off">
         <TextField
           required
-          id="standard-password-input"
+          id="AccountPassword"
           label="Password"
           className={classes.textField}
           type="password"

@@ -70,7 +70,7 @@ class TextFields extends React.Component {
               <form className={classes.container} noValidate autoComplete="off">
         <TextField
           required
-          id="email-input"
+          id="AccountEmail"
           label="Email"
           className={classes.textField}
           type="email"

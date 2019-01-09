@@ -46,8 +46,8 @@ function Navbar(props) {
           <Link to='/Budget'>
           <Button className={classes.button} >Budget</Button>
           </Link>
-          <Link to='/Logout'>
-          <Button className={classes.button} >Logout</Button>
+          <Link to='/'>
+          <Button className={classes.button}  >Logout</Button>
           </Link>
         </Toolbar>
       </AppBar>

@@ -10,7 +10,7 @@ const styles = theme => ({
     flexGrow: 1,
   },
   demo: {
-    height: 100,
+    height: 80,
   },
   button: {
     margin: theme.spacing.unit,
