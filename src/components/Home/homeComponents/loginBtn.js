@@ -55,7 +55,7 @@ class InteractiveGrid extends React.Component {
             <Grid container spacing={24}>
               <Grid item xs={12}>
             <div>   
-              <Button variant="contained" color="primary" className={classes.button}>
+              <Button variant="contained" color="primary" className={classes.button} href='/MainPage'>
                 Sign in
               </Button>
             </div>
