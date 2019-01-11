@@ -64,7 +64,7 @@ class MenuListComposition extends React.Component {
                   <ClickAwayListener onClickAway={this.handleClose}>
                     <MenuList>
                       <MenuItem onClick={this.handleClose}>My account</MenuItem>
-                      <MenuItem onClick = {'../Account'}>Logout</MenuItem>
+                      <a href="/"><MenuItem href = '../Account'>Logout</MenuItem></a>
                     </MenuList>
                   </ClickAwayListener>
                 </Paper>
