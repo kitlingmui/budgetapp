@@ -20,7 +20,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu'; 
 import Typography from '@material-ui/core/Typography';
-
+import Avatar from '@material-ui/core/Avatar';
+import Piggy from '../../Home/homeComponents/piggy'
+import ProfileAvatar from './Avatar'
 const styles = {
   list: {
     width: 250,
@@ -28,7 +30,14 @@ const styles = {
   fullList: {
     width: 'auto',
   },
+  toolbar: {
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+
 };
+
+
 
 class SwipeableTemporaryDrawer extends React.Component {
   state = {
@@ -47,25 +56,22 @@ class SwipeableTemporaryDrawer extends React.Component {
     const sideList = (
       <div className={classes.list}>
         <List>
-          {['Calendar', 'Transaction', 'Chart', 'Categories','Budgets'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index  === 0 ? <CalendarTodayIcon /> : index  === 1 ? <PaymentIcon /> : 
-              index === 2 ? <PieChartIcon /> : index === 3 ?<CategoryIcon /> : <AttachMoneyIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-            
-          ))}
+        <Piggy/>
+        {/* <Avatar alt="Remy Sharp" src="./images/piggy.jpg"/> */}
+          
         </List>
         <Divider /> 
         <Typography variant="h6" color="inherit" className={classes.grow}>
           Overview
           </Typography>
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+        {['Calendar', 'Transaction', 'Chart', 'Categories','Budgets'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>{index  === 0 ? <CalendarTodayIcon /> : index  === 1 ? <PaymentIcon /> : 
+              index === 2 ? <PieChartIcon /> : index === 3 ?<CategoryIcon /> : <AttachMoneyIcon />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
+            
           ))}
         </List>
       </div>
@@ -77,10 +83,15 @@ class SwipeableTemporaryDrawer extends React.Component {
       <div>
         <AppBar position="fixed" color="primary" className={classes.appBar}>
         <Toolbar className={classes.toolbar}>      
-          <Button onClick={this.toggleDrawer('left', true)}><MenuIcon /></Button>   
+          <Button onClick={this.toggleDrawer('left', true)}><MenuIcon /></Button>  
+          <Typography>
+          PiggyBank
+          </Typography>
+          <ProfileAvatar/>
         </Toolbar>
       </AppBar>
         <SwipeableDrawer
+        
           open={this.state.left}
           onClose={this.toggleDrawer('left', false)}
           onOpen={this.toggleDrawer('left', true)}
@@ -93,7 +104,9 @@ class SwipeableTemporaryDrawer extends React.Component {
           >
             {sideList}
           </div>
-        </SwipeableDrawer>   
+          
+        </SwipeableDrawer>  
+         
       </div>
     );
   }
