@@ -58,15 +58,7 @@ const styles = theme => ({
   title: {
     flexGrow: 1,
   },
-  drawerPaper: {
-    position: 'relative',
-    whiteSpace: 'nowrap',
-    width: drawerWidth,
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
+
   drawerPaperClose: {
     overflowX: 'hidden',
     transition: theme.transitions.create('width', {
@@ -136,7 +128,7 @@ class Dashboard extends React.Component {
         <Drawer
           variant="permanent"
           classes={{
-            paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose),
+            paper: classNames( !this.state.open && classes.drawerPaperClose),
           }}
           open={this.state.open}
         >
@@ -145,7 +137,7 @@ class Dashboard extends React.Component {
               <ChevronLeftIcon />
             </IconButton>
           </div>
-          <Divider />
+     
           <List>{mainListItems}</List>
           <Divider />
           <List>{secondaryListItems}</List>
