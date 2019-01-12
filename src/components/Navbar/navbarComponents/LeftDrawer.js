@@ -24,14 +24,20 @@ import Avatar from '@material-ui/core/Avatar';
 import ProfileAvatar from './Avatar'
 const styles = {
   list: {
-    width: 250,
+    width: 200,
   },
+
   fullList: {
     width: 'auto',
   },
   toolbar: {
     alignItems: 'center',
     justifyContent: 'space-between',
+  },
+
+  bigAvatar: {
+    width: 200,
+    height: 150,
   },
 
 };
