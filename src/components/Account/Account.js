@@ -107,7 +107,7 @@ class Account extends Component {
           </Grid>
         </form>
         <Grid container justify="center" alignItems="center">
-          <Button variant="contained" color="secondary" className={classes.button} href='/Success'>
+          <Button variant="contained" color="secondary" className={classes.button} href='/MainPage'>
             Create Account
           </Button>
         </Grid>

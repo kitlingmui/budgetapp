@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Home from './components/Home'
 import Account from './components/Account'
 import AccountInfo from './components/AccountInfo'
-//import Success from './components/Success'
-//<Route path='/Success' component={Success} />
 import Navbar from './components/Navbar'
 import MainPage from './components/MainPage'
 import AboutUs from './components/AboutUs'
