@@ -6,7 +6,7 @@ import AccountInfo from './components/AccountInfo'
 import Navbar from './components/Navbar'
 import MainPage from './components/MainPage'
 import AboutUs from './components/AboutUs'
-import Budget from './components/Budget'
+import BudgetPage from './components/BudgetPage'
 
 class App extends Component {
   render () {
@@ -21,7 +21,7 @@ class App extends Component {
             <Route path='/Navbar' component={Navbar} />
             <Route path='/MainPage' component={MainPage} />
             <Route path='/AboutUs' component={AboutUs} />
-            <Route path='/Budget' component={Budget} />
+            <Route path='/BudgetPage' component={BudgetPage} />
           </div>
         </Router>
       </>
