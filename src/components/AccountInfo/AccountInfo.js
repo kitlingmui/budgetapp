@@ -83,6 +83,8 @@ class User extends Component {
           margin="normal"
           variant="filled"
         />
+      </Grid>
+      <Grid container justify="center" alignItems="center">
         <TextField
           id="Last-Name"
           label="Last Name"
@@ -91,6 +93,8 @@ class User extends Component {
           margin="normal"
           variant="filled"
         />
+      </Grid>
+      <Grid container justify="center" alignItems="center">
         <TextField
           required
           id="Email"

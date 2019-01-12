@@ -102,7 +102,7 @@ class Home extends Component {
       </Grid>
       <Grid container justify="center" alignItems="center">
       <div>
-        <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Terms and Conditions</Link>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Terms and Conditions</a>
       </div>
       </Grid>
       </>
