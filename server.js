@@ -11,5 +11,4 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyparser.urlencoded({extended: true}))
 app.use(bodyparser.json())
 
-
 app.listen(3001, _ => console.log('http://localhost:3001'));
