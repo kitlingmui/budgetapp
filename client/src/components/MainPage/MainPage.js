@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import BudgetTable from './mainComponents/budgetTable'
 
 const styles = theme => ({
   root: {
@@ -11,7 +12,7 @@ const styles = theme => ({
   },
   paper: {
     padding: theme.spacing.unit * 2,
-    textAlign: 'center',
+    textAlign: 'left',
     color: theme.palette.text.secondary,
   },
 });
@@ -23,10 +24,13 @@ function FullWidthGrid(props) {
     <div className={classes.root}>
       <Grid container spacing={24}>
         <Grid item xs={12}>
-        <Navbar/ > 
+        <Navbar/ >
         </Grid>
-        <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>xs=12 sm=6</Paper>
+        <Grid item xs={12} sm={12}>
+          <Paper className={classes.paper}>
+          <h1>January 2019</h1>
+          <BudgetTable/ >
+          </Paper>
         </Grid>
         <Grid item xs={12} sm={6}>  
           <Paper className={classes.paper}>xs=12 sm=6</Paper>
