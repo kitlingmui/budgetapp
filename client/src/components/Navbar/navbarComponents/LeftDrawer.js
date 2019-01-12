@@ -61,7 +61,7 @@ class SwipeableTemporaryDrawer extends React.Component {
     const sideList = (
       <div className={classes.list}>
         <List>
-        {/* <Avatar alt="Remy Sharp" src="./images/piggy.jpg"/> */}
+        { <Avatar className={classes.bigAvatar} alt="Remy Sharp" src="./images/piggy.jpg"/> }
           
         </List>
         <Divider /> 
