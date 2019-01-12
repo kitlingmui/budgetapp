@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Home from './components/Home'
 import Account from './components/Account'
+import AccountInfo from './components/AccountInfo'
 //import Success from './components/Success'
 //<Route path='/Success' component={Success} />
 import Navbar from './components/Navbar'
@@ -17,7 +18,7 @@ class App extends Component {
           <div> 
             <Route exact path='/' component={Home} />
             <Route path='/Account' component={Account} />
-            
+            <Route path='/AccountInfo' component={AccountInfo} />
             <Route path='/Home' component={Home} />
             <Route path='/Navbar' component={Navbar} />
             <Route path='/MainPage' component={MainPage} />

@@ -9,6 +9,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { withStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
+import { Link } from 'react-router-dom'
+
+
 
 const styles = theme => ({
   root: {
@@ -19,10 +22,12 @@ const styles = theme => ({
   },
 });
 
-class MenuListComposition extends React.Component {
+class Navbar extends React.Component {
   state = {
     open: false,
   };
+
+  
 
   handleToggle = () => {
     this.setState(state => ({ open: !state.open }));
@@ -39,6 +44,8 @@ class MenuListComposition extends React.Component {
   render() {
     const { classes } = this.props;
     const { open } = this.state;
+
+  
 
     return (
       <div className={classes.root}>
@@ -63,8 +70,8 @@ class MenuListComposition extends React.Component {
                 <Paper>
                   <ClickAwayListener onClickAway={this.handleClose}>
                     <MenuList>
-                      <MenuItem onClick={this.handleClose}>My account</MenuItem>
-                      <MenuItem onClick = {'../Account'}>Logout</MenuItem>
+                      <MenuItem><Link to='/AccountInfo'>My Account</Link></MenuItem>
+                      <MenuItem><Link to='/'>Log Out</Link></MenuItem>
                     </MenuList>
                   </ClickAwayListener>
                 </Paper>
@@ -77,8 +84,8 @@ class MenuListComposition extends React.Component {
   }
 }
 
-MenuListComposition.propTypes = {
+Navbar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MenuListComposition);
+export default withStyles(styles)(Navbar);
