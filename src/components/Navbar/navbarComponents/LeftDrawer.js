@@ -21,7 +21,6 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu'; 
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
-import Piggy from '../../Home/homeComponents/piggy'
 import ProfileAvatar from './Avatar'
 const styles = {
   list: {
@@ -56,7 +55,6 @@ class SwipeableTemporaryDrawer extends React.Component {
     const sideList = (
       <div className={classes.list}>
         <List>
-        <Piggy/>
         {/* <Avatar alt="Remy Sharp" src="./images/piggy.jpg"/> */}
           
         </List>

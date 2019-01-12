@@ -77,6 +77,8 @@ class Home extends Component {
           autoComplete="email"
           margin="normal"
         />
+        </Grid>
+        <Grid container justify="center" alignItems="center">
         <TextField
         required
           id="homePassword"
@@ -86,7 +88,7 @@ class Home extends Component {
           autoComplete="current-password"
           margin="normal"
         />
-        </Grid>
+      </Grid>
       </form>
       <Grid container justify="center" alignItems="center">
         <Button variant="contained" color="primary" className={classes.button} href='/MainPage'>
