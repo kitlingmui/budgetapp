@@ -1,10 +1,10 @@
 const express = require('express');
 const bodyparser = require('body-parser');
 const path = require('path');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const app = express();
 
-mongoose.connect('mongodb://localhost/Users', { useNewUrlParser: true});
+// mongoose.connect('mongodb://localhost/Users', { useNewUrlParser: true});
 
 //app.get('/models', (req, res) => res.render('app'));
 app.use(express.static(path.join(__dirname, 'public')));
