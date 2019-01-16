@@ -11,7 +11,7 @@ import BudgetPage from './components/BudgetPage'
 class App extends Component {
   render () {
     return (
-      <>
+      
         <Router>
           <div> 
             <Route exact path='/' component={Home} />
@@ -24,7 +24,7 @@ class App extends Component {
             <Route path='/BudgetPage' component={BudgetPage} />
           </div>
         </Router>
-      </>
+      
     )
   }
 }

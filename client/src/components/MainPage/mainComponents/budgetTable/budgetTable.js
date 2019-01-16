@@ -8,7 +8,6 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import TextInput from '../textInput/textInput'
-import Grid from '@material-ui/core/Grid';
 
 const CustomTableCell = withStyles(theme => ({
   head: {
@@ -36,6 +35,10 @@ const styles = theme => ({
       backgroundColor: theme.palette.background.default,
     },
   },
+  main: {
+    margin: 50,
+    marginLeft: 200,
+  },
 });
 
 let id = 0;
@@ -44,14 +47,8 @@ function createData(name, planamt, realamt) {
   return { id, name, planamt,realamt };
 }
 
-const incomerows = [
-  createData('Paycheck1', 159, 6.0),
-  createData('Paycheck2', 237, 9.0),
-  createData('Part Time', 262, 16.0),
-];
-
-const expenserows = [
-  createData('Food', 159, 6.0),
+const rows = [
+  createData('Income', 159, 6.0),
   createData('Housing', 237, 9.0),
   createData('Utilities', 262, 16.0),
 ];
@@ -63,59 +60,18 @@ class budgetTable extends Component {
     const { classes } = this.props;
     return (   
       <>
-       <div>
-       <Grid container justify="center" alignItems="center"> 
-       <Paper className={classes.root}>
-            <Table className={classes.table}>
-              <TableHead>
-                <TableRow>
-                  <CustomTableCell>Income Catagory</CustomTableCell>
-                  <CustomTableCell align="center">Plan Amount</CustomTableCell>
-                  <CustomTableCell align="center">Real Amount</CustomTableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {incomerows.map(row => {
-                  return (
-                    <TableRow className={classes.row} key={row.id}>
-                      <CustomTableCell align="left" component="th" scope="row">
-                        {row.name}
-                      </CustomTableCell>
-                      <CustomTableCell align="right">
-                        <TextInput/ >
-                      </CustomTableCell>
-                      <CustomTableCell align="right">
-                        <TextInput/ >
-                      </CustomTableCell>
-                    </TableRow>
-                  );
-                })}
-                  <TableRow className={classes.row} >
-                    <CustomTableCell align="left" component="th" scope="row">
-                      Total
-                    </CustomTableCell>
-                    <CustomTableCell align="right">
-                      0
-                    </CustomTableCell>
-                    <CustomTableCell align="right">
-                      0
-                    </CustomTableCell>
-                  </TableRow>
-              </TableBody>
-            </Table>         
-          </Paper>  
-
+       <div className={classes.main}>
           <Paper className={classes.root}>
             <Table className={classes.table}>
               <TableHead>
                 <TableRow>
-                  <CustomTableCell>Expense Catagory</CustomTableCell>
+                  <CustomTableCell>Budget Catagory</CustomTableCell>
                   <CustomTableCell align="center">Plan Amount</CustomTableCell>
                   <CustomTableCell align="center">Real Amount</CustomTableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {expenserows.map(row => {
+                {rows.map(row => {
                   return (
                     <TableRow className={classes.row} key={row.id}>
                       <CustomTableCell align="left" component="th" scope="row">
@@ -130,22 +86,10 @@ class budgetTable extends Component {
                     </TableRow>
                   );
                 })}
-                <TableRow className={classes.row} >
-                    <CustomTableCell align="left" component="th" scope="row">
-                      Total
-                    </CustomTableCell>
-                    <CustomTableCell align="right">
-                      0
-                    </CustomTableCell>
-                    <CustomTableCell align="right">
-                      0
-                    </CustomTableCell>
-                  </TableRow>
               </TableBody>
-              </Table>
-            </Paper> 
-            </Grid>
-            </div>
+            </Table>
+          </Paper>  
+      </div>   
       </>
     )
   }   

@@ -55,7 +55,6 @@ class Home extends Component {
     const { classes } = this.props;
     return (
       <>
-      
         <Grid container justify="center" alignItems="center"> 
           <img src="./images/piggy.jpg" alt='piggy'/>
         </Grid>
