@@ -54,6 +54,7 @@ class SwipeableTemporaryDrawer extends React.Component {
       [side]: open,
     });
   };
+    
 
   render() {
     const { classes } = this.props;
