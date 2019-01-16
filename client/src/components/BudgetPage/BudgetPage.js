@@ -13,7 +13,7 @@ class BudgetPage extends Component {
       <>
        <Navbar/ > 
        <div>
-         <h1>Budget Page Component to be update</h1>
+         <h1>Budget Page Component to be updated</h1>
        </div>
       </>
     );
