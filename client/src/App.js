@@ -9,10 +9,11 @@ import AboutUs from './components/AboutUs'
 import Budget from './components/Budget'
 import Chart from './components/Chart'
 
+
 class App extends Component {
   render () {
     return (
-      <>
+      
         <Router>
           <div> 
             <Route exact path='/' component={Home} />
@@ -26,7 +27,7 @@ class App extends Component {
             <Route path='/Chart' component={Chart} />
           </div>
         </Router>
-      </>
+      
     )
   }
 }

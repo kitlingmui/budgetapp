@@ -7,17 +7,17 @@ const styles = theme => ({
   },   
 });
 
-class Budget extends Component {
+class BudgetPage extends Component {
   render() {
     return (
       <>
-       <Navbar /> 
+       <Navbar/ > 
        <div>
-         <h1>Budget Component to be updated</h1>
+         <h1>Budget Page Component to be updated</h1>
        </div>
       </>
     );
   }
 }
   
-export default Budget;
+export default BudgetPage;
