@@ -69,7 +69,6 @@ class SwipeableTemporaryDrawer extends React.Component {
         <Typography variant="h6" color="inherit" className={classes.grow}>
           Overview
           </Typography>
-          
           <ListItem button>
       <ListItemIcon>
         <CalendarTodayIcon />
