@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import BudgetTable from './mainComponents/budgetTable'
-
+import BottomBar from '../Navbar/navbarComponents/BottomBar'
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -23,16 +23,16 @@ function FullWidthGrid(props) {
   return (
     <div className={classes.root}>
       <Grid container spacing={24}>
-        <Grid item xs={12}sm={12}>
+      
         <Navbar/ >
         </Grid>
-        <Grid item xs={12} sm={12} justify="center" alignItems="center" >
-          <Paper className={classes.paper}>
-          <h1>January 2019</h1>
-          <BudgetTable/ >
-          </Paper>
-        </Grid>
-        </Grid>
+
+          <h1 className={classes.paper}>January 2019</h1>
+ 
+        <BudgetTable/ >
+   
+        <BottomBar/ >
+     
     </div>
   );
 }
