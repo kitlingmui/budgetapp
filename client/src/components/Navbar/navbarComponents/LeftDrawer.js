@@ -22,13 +22,21 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import ProfileAvatar from './Avatar'
-const styles = {
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import StarBorder from '@material-ui/icons/StarBorder';
+import Collapse from '@material-ui/core/Collapse';
+
+const styles = theme =>({
   list: {
     width: 200,
   },
 
   fullList: {
     width: 'auto',
+  },
+  nested: {
+    paddingLeft: theme.spacing.unit * 4,
   },
   toolbar: {
     alignItems: 'center',
@@ -40,13 +48,18 @@ const styles = {
     height: 150,
   },
 
-};
+});
 
 
 
 class SwipeableTemporaryDrawer extends React.Component {
   state = {
-    left: false
+    left: false,
+    open: false
+  };
+
+  handleClick = () => {
+    this.setState(state => ({ open: !state.open }));
   };
   
   toggleDrawer = (side, open) => () => {
@@ -87,13 +100,25 @@ class SwipeableTemporaryDrawer extends React.Component {
       </ListItemIcon>
       <ListItemText primary="Chart" />
     </ListItem>
-    <ListItem button>
+    <ListItem button onClick={this.handleClick}>
       <ListItemIcon>
         <CategoryIcon />
       </ListItemIcon>
       <ListItemText primary="Categories" />
+      {this.state.open ? <ExpandLess /> : <ExpandMore />}
     </ListItem>
-    <ListItem button>
+
+    <Collapse in={this.state.open} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <ListItem button className={classes.nested}>
+              <ListItemIcon>
+                <StarBorder />
+              </ListItemIcon>
+              <ListItemText inset primary="Starred" />
+            </ListItem>
+          </List>
+        </Collapse>
+        <ListItem button >
       <ListItemIcon>
         <AttachMoneyIcon />
       </ListItemIcon>
