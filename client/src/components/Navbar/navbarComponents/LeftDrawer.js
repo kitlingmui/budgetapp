@@ -69,20 +69,39 @@ class SwipeableTemporaryDrawer extends React.Component {
         <Typography variant="h6" color="inherit" className={classes.grow}>
           Overview
           </Typography>
-        <List>
-        {['Calendar', 'Transaction', 'Chart', 'Categories','Budgets'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index  === 0 ? <CalendarTodayIcon /> : index  === 1 ? <PaymentIcon /> : 
-              index === 2 ? <PieChartIcon /> : index === 3 ?<CategoryIcon /> : <AttachMoneyIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-            
-          ))}
-        </List>
+          
+          <ListItem button>
+      <ListItemIcon>
+        <CalendarTodayIcon />
+      </ListItemIcon>
+      <ListItemText primary="Calendar" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <PaymentIcon />
+      </ListItemIcon>
+      <ListItemText primary="Transaction" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <PieChartIcon />
+      </ListItemIcon>
+      <ListItemText primary="Chart" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <CategoryIcon />
+      </ListItemIcon>
+      <ListItemText primary="Categories" />
+    </ListItem>
+    <ListItem button>
+      <ListItemIcon>
+        <AttachMoneyIcon />
+      </ListItemIcon>
+      <ListItemText primary="Budgets" />
+    </ListItem>
       </div>
     );
-
- 
 
     return (
       <div>
