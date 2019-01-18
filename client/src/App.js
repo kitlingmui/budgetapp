@@ -6,7 +6,9 @@ import AccountInfo from './components/AccountInfo'
 import Navbar from './components/Navbar'
 import MainPage from './components/MainPage'
 import AboutUs from './components/AboutUs'
-import BudgetPage from './components/BudgetPage'
+import Budget from './components/Budget'
+import Chart from './components/Chart'
+
 
 class App extends Component {
   render () {
@@ -21,7 +23,8 @@ class App extends Component {
             <Route path='/Navbar' component={Navbar} />
             <Route path='/MainPage' component={MainPage} />
             <Route path='/AboutUs' component={AboutUs} />
-            <Route path='/BudgetPage' component={BudgetPage} />
+            <Route path='/Budget' component={Budget} />
+            <Route path='/Chart' component={Chart} />
           </div>
         </Router>
       
@@ -30,4 +33,3 @@ class App extends Component {
 }
 
 export default App;
-

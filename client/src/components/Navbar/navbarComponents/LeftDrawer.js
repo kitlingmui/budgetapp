@@ -8,20 +8,17 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
 import PaymentIcon from '@material-ui/icons/Payment';
 import PieChartIcon from '@material-ui/icons/PieChart';
 import CategoryIcon from '@material-ui/icons/Category';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-import MailIcon from '@material-ui/icons/Mail';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';    
-import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu'; 
 import Typography from '@material-ui/core/Typography';
-import Avatar from '@material-ui/core/Avatar';
 import ProfileAvatar from './Avatar'
+import Grid from '@material-ui/core/Grid';
 const styles = {
   list: {
     width: 200,
@@ -61,8 +58,9 @@ class SwipeableTemporaryDrawer extends React.Component {
     const sideList = (
       <div className={classes.list}>
         <List>
-        {/* <Avatar alt="Remy Sharp" src="./images/piggy.jpg"/> */}
-          
+        <Grid container justify="center" alignItems="center"> 
+          <img src="./images/piggy.jpg" alt='piggy'/>
+        </Grid>
         </List>
         <Divider /> 
         <Typography variant="h6" color="inherit" className={classes.grow}>
@@ -89,7 +87,7 @@ class SwipeableTemporaryDrawer extends React.Component {
         <Toolbar className={classes.toolbar}>      
           <Button onClick={this.toggleDrawer('left', true)}><MenuIcon /></Button>  
           <Typography>
-          PiggyBank
+          Piggy Bank
           </Typography>
           <ProfileAvatar/>
         </Toolbar>
