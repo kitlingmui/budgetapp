@@ -51,9 +51,9 @@ class CenteredTabs extends React.Component {
       <div className={classes.root}>
           <AppBar position="static">
             <Tabs variant="fullWidth" value={value} onChange={this.handleChange}>
-              <LinkTab label="Expenses" href="/MainPage" />
-              <LinkTab label="Savings" href="/Savings" />
-              <LinkTab label="Spendings" href="/Spendings" />
+              <LinkTab label="Savings" href="/MainPage" />
+              <LinkTab label="Spendings" href="/Savings" />
+              <LinkTab label="Remaining" href="/Spendings" />
             </Tabs>
           </AppBar>
         </div>
