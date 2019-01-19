@@ -6,8 +6,9 @@ import AccountInfo from './components/AccountInfo'
 import Navbar from './components/Navbar'
 import MainPage from './components/MainPage'
 import AboutUs from './components/AboutUs'
-import Budget from './components/Budget'
 import Chart from './components/Chart'
+import Savings from './components/Savings'
+import Spendings from './components/Spendings'
 
 
 class App extends Component {
@@ -23,8 +24,9 @@ class App extends Component {
             <Route path='/Navbar' component={Navbar} />
             <Route path='/MainPage' component={MainPage} />
             <Route path='/AboutUs' component={AboutUs} />
-            <Route path='/Budget' component={Budget} />
             <Route path='/Chart' component={Chart} />
+            <Route path='/Savings' component={Savings} />
+            <Route path='/Spendings' component={Spendings} />
           </div>
         </Router>
       

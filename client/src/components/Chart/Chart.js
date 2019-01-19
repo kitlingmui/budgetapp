@@ -1,37 +1,59 @@
-import React from 'react';
-import ResponsiveContainer from 'recharts/lib/component/ResponsiveContainer';
-import LineChart from 'recharts/lib/chart/LineChart';
-import Line from 'recharts/lib/cartesian/Line';
-import XAxis from 'recharts/lib/cartesian/XAxis';
-import YAxis from 'recharts/lib/cartesian/YAxis';
-import CartesianGrid from 'recharts/lib/cartesian/CartesianGrid';
-import Tooltip from 'recharts/lib/component/Tooltip';
-import Legend from 'recharts/lib/component/Legend';
+import React from "react";
+import { Doughnut } from "react-chartjs-2";
+import { MDBContainer } from "mdbreact";
+import { Typography } from "@material-ui/core";
+import Grid from '@material-ui/core/Grid';
+
 
 const data = [
-  { name: 'Mon', Visits: 2200, Orders: 3400 },
-  { name: 'Tue', Visits: 1280, Orders: 2398 },
-  { name: 'Wed', Visits: 5000, Orders: 4300 },
-  { name: 'Thu', Visits: 4780, Orders: 2908 },
-  { name: 'Fri', Visits: 5890, Orders: 4800 },
-  { name: 'Sat', Visits: 4390, Orders: 3800 },
-  { name: 'Sun', Visits: 4490, Orders: 4300 },
-];
+  { name: 'Jan', Savings: 50, Spendings: 300 },
+  { name: 'Feb', Savings: 30, Spendings: 400 },
+  { name: 'Mar', Savings: 5000, Spendings: 4300 },
+  { name: 'Apr', Savings: 4780, Spendings: 2908 },
+  { name: 'May', Savings: 5000, Spendings: 4800 },
+  { name: 'Jun', Savings: 4390, Spendings: 3800 },
+  { name: 'Jul', Savings: 4490, Spendings: 4300 },
+  { name: 'Aug', Savings: 4490, Spendings: 4300 },
+  { name: 'Sep', Savings: 4490, Spendings: 4300 },
+  { name: 'Oct', Savings: 4490, Spendings: 4300 },
+  { name: 'Nov', Savings: 4490, Spendings: 4300 },
+  { name: 'Dec', Savings: 4490, Spendings: 4300 },
+]; 
 
-function Chart() {
-  return (
-    <ResponsiveContainer width="99%" height={320}>
-      <LineChart data={data}>
-        <XAxis dataKey="name" />
-        <YAxis />
-        <CartesianGrid vertical={false} strokeDasharray="3 3" />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="Visits" stroke="#82ca9d" />
-        <Line type="monotone" dataKey="Orders" stroke="#8884d8" activeDot={{ r: 8 }} />
-      </LineChart>
-    </ResponsiveContainer>
-  );
+class Chart extends React.Component {
+state = {
+  dataDoughnut: {
+    labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
+    datasets: [
+      {
+        data: [300, 50, 100, 40, 120],
+        backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+        hoverBackgroundColor: [
+          "#FF5A5E",
+          "#5AD3D1",
+          "#FFC870",
+          "#A8B3C5",
+          "#616774"
+        ]
+      }
+    ]
+  }
+}
+
+render() {
+    return (
+      <>
+      <Grid container justify="center" alignItems="center">
+        <Typography variant='h4'>Expenses</Typography>
+      </Grid>
+      <Grid container justify="center" alignItems="center">
+        <MDBContainer>
+          <Doughnut data={this.state.dataDoughnut} options={{ responsive: true }} />
+        </MDBContainer>
+      </Grid>
+    </>
+    );
+  }
 }
 
 export default Chart;

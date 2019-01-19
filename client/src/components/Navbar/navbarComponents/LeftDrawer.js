@@ -9,9 +9,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
-import PaymentIcon from '@material-ui/icons/Payment';
 import PieChartIcon from '@material-ui/icons/PieChart';
-import CategoryIcon from '@material-ui/icons/Category';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';    
@@ -19,6 +17,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Typography from '@material-ui/core/Typography';
 import ProfileAvatar from './Avatar'
 import Grid from '@material-ui/core/Grid';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+
 const styles = {
   list: {
     width: 200,
@@ -63,14 +63,11 @@ class SwipeableTemporaryDrawer extends React.Component {
         </Grid>
         </List>
         <Divider /> 
-        <Typography variant="h6" color="inherit" className={classes.grow}>
-          Overview
-          </Typography>
         <List>
-        {['Calendar', 'Transaction', 'Chart', 'Categories','Budgets'].map((text, index) => (
+        {['Calendar', 'Chart', 'Budgets','About us'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index  === 0 ? <CalendarTodayIcon /> : index  === 1 ? <PaymentIcon /> : 
-              index === 2 ? <PieChartIcon /> : index === 3 ?<CategoryIcon /> : <AttachMoneyIcon />}</ListItemIcon>
+              <ListItemIcon>{index  === 0 ? <CalendarTodayIcon /> : index  === 1 ? <PieChartIcon /> : 
+              index === 2 ? <AttachMoneyIcon />  : index === 3 ?<AccountCircle /> : <AccountCircle />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
             
@@ -78,8 +75,6 @@ class SwipeableTemporaryDrawer extends React.Component {
         </List>
       </div>
     );
-
- 
 
     return (
       <div>
