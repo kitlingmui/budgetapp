@@ -6,7 +6,6 @@ import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';    
-import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu'; 
 import Typography from '@material-ui/core/Typography';
 import ProfileAvatar from './Avatar'
@@ -76,7 +75,7 @@ class SwipeableTemporaryDrawer extends React.Component {
         <Toolbar className={classes.toolbar}>      
           <Button onClick={this.toggleDrawer('left', true)}><MenuIcon /></Button>  
           <Typography>
-          PiggyBank
+          Piggy Bank
           </Typography>
           <ProfileAvatar/>
         </Toolbar>
