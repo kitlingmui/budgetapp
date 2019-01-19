@@ -59,11 +59,13 @@ class textInput extends Component {
           value={this.state.amount}
           onChange={this.handleChange('amount')}
           InputProps={{
+            disableUnderline: true,
             startAdornment: (
               <InputAdornment variant="filled" position="start">
                 $
               </InputAdornment>
             ),
+            
           }}
         />     
       </div>

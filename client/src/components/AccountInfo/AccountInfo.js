@@ -81,7 +81,8 @@ class User extends Component {
           value={this.state.name}
           onChange={this.handleChange('name')}
           margin="normal"
-          variant="filled"
+          //variant="filled"
+          InputProps={{ disableUnderline: true, }}
         />
       </Grid>
       <Grid container justify="center" alignItems="center">
@@ -91,7 +92,8 @@ class User extends Component {
           className={classes.textField}
           value={this.state.lastName}
           margin="normal"
-          variant="filled"
+          //variant="filled"
+          InputProps={{ disableUnderline: true, }}
         />
       </Grid>
       <Grid container justify="center" alignItems="center">
@@ -104,7 +106,8 @@ class User extends Component {
           type='email'
           autoComplete='email'
           margin="normal"
-          variant="filled"
+          //variant="filled"
+          InputProps={{ disableUnderline: true, }}
         />
         </Grid>
         </form>

@@ -79,7 +79,7 @@ function FullWidthGrid(props) {
         <BudgetTable/ >
    
         <BottomBar/ > */}
-     
+  
       <Grid container justify="center" alignItems="center"> 
         <Navbar/ > 
         </Grid>
@@ -96,6 +96,15 @@ function FullWidthGrid(props) {
         <Line type="monotone" dataKey="Spendings" stroke="#8884d8" activeDot={{ r: 8 }} />
       </LineChart>
     </ResponsiveContainer>
+     <Grid container spacing={24}>
+      
+     <BudgetTable/ >
+        </Grid>
+<Grid container spacing={24}>
+      
+     <BottomBar/ >
+        </Grid>
+   
         </Grid>
     </div>
   );

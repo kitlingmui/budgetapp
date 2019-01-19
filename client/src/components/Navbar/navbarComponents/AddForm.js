@@ -81,6 +81,7 @@ class FullScreenDialog extends React.Component {
               label="Date"
               type="date"
               fullWidth
+              InputProps={{ disableUnderline: true, }}
             />
              <TextField
               autoFocus
@@ -89,6 +90,7 @@ class FullScreenDialog extends React.Component {
               label="Amount"
               type="number"
               fullWidth
+              InputProps={{ disableUnderline: true, }}
             />
              <TextField
               autoFocus
@@ -97,6 +99,7 @@ class FullScreenDialog extends React.Component {
               label="Merchant"
               type="string"
               fullWidth
+              
             />
              <TextField
               autoFocus
@@ -105,6 +108,7 @@ class FullScreenDialog extends React.Component {
               label="Reason"
               type="string"
               fullWidth
+             
             />
           </DialogContent>
         </Dialog>
