@@ -3,7 +3,7 @@ import Navbar from '../Navbar'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Chart from '../Chart';
+import Spendings from '../Spendings';
 import BudgetTable2 from '../BudgetTable2';
 import BottomNav from '../BottomNav';
 import NavBar2 from '../Navbar2'
@@ -39,8 +39,6 @@ const styles = theme => ({
   }
 });
 
-
-
 function FullWidthGrid(props) {
   const { classes } = props;
 
@@ -53,9 +51,9 @@ function FullWidthGrid(props) {
         <NavBar2 />
       </Grid>
       <Grid container justify="center" alignItems="center"> 
-        <Chart />
+        <Spendings />
       </Grid>
-      <Grid className={classes.root.dense} container justify="center" alignItems="center"> 
+      <Grid container justify="center" alignItems="center"> 
         <BudgetTable2 />
       </Grid>
       <Grid container justify="center" alignItems="center"> 
@@ -70,4 +68,3 @@ FullWidthGrid.propTypes = {
 };
 
 export default withStyles(styles)(FullWidthGrid);
-  
