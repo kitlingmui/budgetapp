@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import Chart from '../Chart';
 import BudgetTable2 from '../BudgetTable2';
 import BottomNav from '../BottomNav';
-import NavBar2 from '../Navbar2'
+
 
 
 const styles = theme => ({

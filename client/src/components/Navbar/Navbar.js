@@ -56,6 +56,9 @@ const styles = theme => ({
     display: 'flex',
     backgroundColor: theme.palette.background.paper,
   },
+  margin: {
+    marginTop: 50
+  },
   grow: {
     flexGrow: 1,
   },
@@ -197,7 +200,21 @@ render () {
       </div>
       </AppBar>
     </div>
-
+    
+    <Paper className={classes.margin}>
+        <Tabs
+          value={this.state.value}
+          onChange={this.handleChange}
+          indicatorColor="primary"
+          textColor="primary"
+          centered
+        >
+          <Tab label="Budgets" href='/MainPage' />
+          <Tab label="Savings" href='/Savings'/>
+          <Tab label="Spendings" href='Spendings'/>
+        </Tabs>
+      </Paper>
+    
 </>
   );
 }
