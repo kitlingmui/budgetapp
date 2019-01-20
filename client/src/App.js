@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import Savings from './components/Savings';
 import Spendings from './components/Spendings';
 import NavBar from './components/Navbar';
-import NavBar2 from './components/Navbar2';
+
 
 
 
@@ -26,7 +26,6 @@ class App extends Component {
           <div> 
             {/* nav */}
             <NavBar />
-            <NavBar2 /> 
             <Route exact path='/' component={Home} />
             <Route path='/Account' component={Account} />
             <Route path='/AccountInfo' component={AccountInfo} />
