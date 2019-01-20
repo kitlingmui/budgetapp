@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
-
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-
-//import BudgetTable2 from '../BudgetTable2';
 import BottomNav from '../BottomNav';
-
-import Table from '../MainPage/mainComponents/Table'
-
-
+import Table from '../Table/Table'
 
 
 const styles = theme => ({
@@ -47,8 +41,11 @@ const styles = theme => ({
 
 
 
-function FullWidthGrid(props) {
-  const { classes } = props;
+class MainPage extends Component {
+
+  render () {
+
+  const { classes } = this.props;
   return (
     <>
       <Grid container justify="center" alignItems="center"> 
@@ -66,10 +63,11 @@ function FullWidthGrid(props) {
     </>
   );
 }
+}
 
-FullWidthGrid.propTypes = {
+MainPage.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(FullWidthGrid);
+export default withStyles(styles)(MainPage);
   
