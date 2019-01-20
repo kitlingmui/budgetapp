@@ -1,40 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-
+import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
-import NoSsr from '@material-ui/core/NoSsr';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import AppBar from '@material-ui/core/AppBar';
+import { BrowserRouter as Router, Link } from 'react-router-dom'
 
-
-
-function TabContainer(props) {
-  return (
-    <Typography component="div" style={{ padding: 8 * 3 }}>
-      {props.children}
-    </Typography>
-  );
-}
-
-TabContainer.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-
-function LinkTab(props) {
-  return <Tab component="a" onClick={event => event.preventDefault()} {...props} />;
-}
-
-const styles = theme => ({
+const styles = {
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
+    marginTop: 50
   },
-});
+};
 
-
-class CenteredTabs extends React.Component {
+class NavBar2 extends React.Component {
   state = {
     value: 0,
   };
@@ -45,25 +24,27 @@ class CenteredTabs extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { value } = this.state;
+
     return (
-      <NoSsr>
-      <div className={classes.root}>
-          <AppBar position="static">
-            <Tabs variant="fullWidth" value={value} onChange={this.handleChange}>
-              <LinkTab label="Savings" href="/MainPage" />
-              <LinkTab label="Spendings" href="/Savings" />
-              <LinkTab label="Remaining" href="/Spendings" />
-            </Tabs>
-          </AppBar>
-        </div>
-      </NoSsr>
+      <Paper className={classes.root}>
+        <Tabs
+          value={this.state.value}
+          onChange={this.handleChange}
+          indicatorColor="primary"
+          textColor="primary"
+          centered
+        >
+          <Tab label="Budgets" href='/MainPage' />
+          <Tab label="Savings" href='/Savings'/>
+          <Tab label="Spendings" href='Spendings'/>
+        </Tabs>
+      </Paper>
     );
   }
 }
 
-CenteredTabs.propTypes = {
+NavBar2.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(CenteredTabs);
+export default withStyles(styles)(NavBar2);
