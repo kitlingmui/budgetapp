@@ -4,10 +4,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Chart from '../Chart';
-import BudgetTable2 from '../BudgetTable2';
 import BottomNav from '../BottomNav';
-
-
 
 const styles = theme => ({
   root: {
@@ -39,24 +36,28 @@ const styles = theme => ({
   }
 });
 
-function FullWidthGrid(props) {
-  const { classes } = props;
+class Savings extends Component{
 
-  return (
-    <div className={classes.root}>
-    <h1>Savings</h1>
-      <Grid container justify="center" alignItems="center"> 
-        <Chart />
-      </Grid>
-      <Grid container justify="center" alignItems="center"> 
-        <BottomNav />
-      </Grid>
-    </div>
-  );
+    render() {
+
+    const { classes } = this.props;
+
+    return (
+      <div className={classes.root}>
+      <h1>Savings</h1>
+        <Grid container justify="center" alignItems="center"> 
+          <Chart />
+        </Grid>
+        <Grid container justify="center" alignItems="center"> 
+          <BottomNav />
+        </Grid>
+      </div>
+    )
+  }
 }
 
-FullWidthGrid.propTypes = {
+Savings.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(FullWidthGrid);
+export default withStyles(styles)(Savings);

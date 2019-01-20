@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Button from '@material-ui/core/Button';
@@ -62,8 +62,11 @@ const styles = theme => ({
 
 const cards = [1, 2, 3, 4];
 
-function Album(props) {
-  const { classes } = props;
+class AboutUs extends Component  {
+
+  render () {
+
+  const { classes } = this.props;
 
   return (
     <React.Fragment>
@@ -139,11 +142,12 @@ function Album(props) {
       </footer>
       {/* End footer */}
     </React.Fragment>
-  );
+  )
+}
 }
 
-Album.propTypes = {
+AboutUs.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Album);
+export default withStyles(styles)(AboutUs);

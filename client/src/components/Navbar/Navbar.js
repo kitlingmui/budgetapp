@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -84,10 +84,14 @@ const styles = theme => ({
   paper: {
     marginRight: theme.spacing.unit * 2,
   },
+  appName: {
+    fontSize: "18px",
+    color: "white"
+  }
 });
 
 
-class NavBar extends React.Component {
+class NavBar extends Component {
   state = {
     left: false,
     open: false,
@@ -149,7 +153,7 @@ render () {
         <AppBar position="fixed" color="primary" className={classes.appBar}>
         <Toolbar className={classes.toolbar}>      
           <Button onClick={this.toggleDrawer('left', true)}><MenuIcon /></Button>  
-          <Typography>
+          <Typography className={classes.appName}>
           Piggy Bank
           </Typography>
           <Button
@@ -211,7 +215,7 @@ render () {
         >
           <Tab label="Budgets" href='/MainPage' />
           <Tab label="Savings" href='/Savings'/>
-          <Tab label="Spendings" href='Spendings'/>
+          <Tab label="Spendings" href='/Spendings'/>
         </Tabs>
       </Paper>
     
