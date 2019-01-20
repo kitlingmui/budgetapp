@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from '../Navbar'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -14,7 +13,8 @@ import CartesianGrid from 'recharts/lib/cartesian/CartesianGrid';
 import Tooltip from 'recharts/lib/component/Tooltip';
 import Legend from 'recharts/lib/component/Legend';
 import { Typography } from '@material-ui/core';
-
+import BottomNav from '../BottomNav';
+import Table from '../Table/Table'
 
 const data = [
   { name: 'Jan', Savings: 50, Spendings: 300 },
@@ -32,9 +32,13 @@ const data = [
 ];
 
 
+
 const styles = theme => ({
   root: {
     flexGrow: 1,
+    width: '100%',
+    maxWidth: '360px',
+    backgroundColor: theme.palette.background.paper,
   },
   demo: {
     height: 200,
@@ -64,55 +68,35 @@ const styles = theme => ({
   }
 });
 
-function FullWidthGrid(props) {
-  const { classes } = props;
 
+
+class MainPage extends Component {
+
+  render () {
+
+  const { classes } = this.props;
   return (
-    <div className={classes.root}>
-      {/* <Grid container spacing={24}>
-      
-        <Navbar/ >
-        </Grid>
-
-          <h1 className={classes.paper}>January 2019</h1>
- 
-        <BudgetTable/ >
-   
-        <BottomBar/ > */}
-  
+    <>
       <Grid container justify="center" alignItems="center"> 
-        <Navbar/ > 
-        </Grid>
-        <Grid container justify="center" alignItems="center">
-        <Typography variant='h5'>Expenses</Typography> 
-        <ResponsiveContainer width="99%" height={320} >
-      <LineChart data={data}>
-        <XAxis dataKey="name" />
-        <YAxis  />
-        <CartesianGrid vertical={false} strokeDasharray="3 3" />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="Savings" stroke="#82ca9d" />
-        <Line type="monotone" dataKey="Spendings" stroke="#8884d8" activeDot={{ r: 8 }} />
-      </LineChart>
-    </ResponsiveContainer>
-     <Grid container spacing={24}>
-      
-     <BudgetTable/ >
-        </Grid>
-<Grid container spacing={24}>
-      
-     <BottomBar/ >
-        </Grid>
-   
-        </Grid>
-    </div>
+        
+      </Grid>
+      <Grid container justify="center" alignItems="center"> 
+       
+      </Grid>
+      <Grid container justify="center" alignItems="center"> 
+        <Table />
+      </Grid>
+      <Grid container justify="center" alignItems="center"> 
+        <BottomNav />
+      </Grid>
+    </>
   );
 }
+}
 
-FullWidthGrid.propTypes = {
+MainPage.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(FullWidthGrid);
+export default withStyles(styles)(MainPage);
   

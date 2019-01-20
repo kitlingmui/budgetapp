@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -9,10 +10,11 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import TextInput from '../textInput/textInput'
 import Grid from '@material-ui/core/Grid';
+import { red } from '@material-ui/core/colors';
 
 const CustomTableCell = withStyles(theme => ({
   head: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: "mediumblue",
     color: theme.palette.common.white,
   },
   body: {
@@ -36,69 +38,96 @@ const styles = theme => ({
       backgroundColor: theme.palette.background.default,
     },
   },
-  main: {
-    margin: 50,
-    marginLeft: 200,
-  },
 });
 
-let id = 0;
-function createData(name, planamt, realamt) {
-  id += 1;
-  return { id, name, planamt,realamt };
-}
+class BudgetSummary extends Component {
 
-const rows = [
-  createData('Income', 159, 6.0),
-  createData('Housing', 237, 9.0),
-  createData('Utilities', 262, 16.0),
-];
-
-
-class budgetTable extends Component {
+  state = {
+    budgets: [
+      {
+        id: 0,
+        username: 'team6',
+        month: 1,
+        year: 2019,
+        type: 'Income',
+        catagory: 'Paycheck1',
+        plannedAmt: 0,
+        ActualAmt: 0
+      },
+      {
+        id: 1,
+        username: 'team6',
+        month: 1,
+        year: 2019,
+        type: 'Income',
+        catagory: 'Paycheck2',
+        plannedAmt: 0,
+        ActualAmt: 0
+      },
+      {
+        id: 2,
+        username: 'team6',
+        month: 1,
+        year: 2019,
+        type: 'Expense',
+        catagory: 'Rent',
+        plannedAmt: 0,
+        ActualAmt: 0
+      },
+      {
+        id: 3,
+        username: 'team6',
+        month: 1,
+        year: 2019,
+        type: 'Expense',
+        catagory: 'Utilities',
+        plannedAmt: 0,
+        ActualAmt: 0
+      },
+   ],
+  }
 
   render() {
     const { classes } = this.props;
     return (   
       <>
-       <Grid container justify="center" alignItems="center">
+       <Grid container justify="center" alignItems="center"> 
           <Paper className={classes.root}>
             <Table className={classes.table}>
               <TableHead>
                 <TableRow>
-                  <CustomTableCell>Budget Catagory</CustomTableCell>
-                  <CustomTableCell align="center">Plan Amount</CustomTableCell>
-                  <CustomTableCell align="center">Real Amount</CustomTableCell>
+                  <CustomTableCell>BudgetCatagory</CustomTableCell>
+                  <CustomTableCell align="center">Planed Amount</CustomTableCell>
+                  <CustomTableCell align="center">Actual Amount</CustomTableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {rows.map(row => {
+                {this.state.budgets.map(row => {
                   return (
-                    <TableRow className={classes.row} key={row.id}>
+                    <TableRow className={classes.row} key={this.state.budgets.id}>
                       <CustomTableCell align="left" component="th" scope="row">
-                        {row.name}
+                        'TBA'
                       </CustomTableCell>
                       <CustomTableCell align="right">
-                        <TextInput/ >
+                        'TBA'
                       </CustomTableCell>
                       <CustomTableCell align="right">
-                        <TextInput/ >
+                        'TBA'
                       </CustomTableCell>
                     </TableRow>
                   );
                 })}
               </TableBody>
             </Table>
-          </Paper>  
-          </Grid>  
+          </Paper>    
+      </Grid>   
       </>
     )
   }   
 }
 
-budgetTable.propTypes = {
+BudgetSummary.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(budgetTable);
-
+export default withStyles(styles)(BudgetSummary);
