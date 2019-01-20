@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
-import Navbar from '../Navbar'
+
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Chart from '../Chart';
-import BudgetTable2 from '../BudgetTable2';
+
+//import BudgetTable2 from '../BudgetTable2';
 import BottomNav from '../BottomNav';
-import NavBar2 from '../Navbar2'
+
+import Table from '../MainPage/mainComponents/Table'
+
+
 
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
+    width: '100%',
+    maxWidth: '360px',
+    backgroundColor: theme.palette.background.paper,
   },
   demo: {
     height: 200,
@@ -43,25 +49,21 @@ const styles = theme => ({
 
 function FullWidthGrid(props) {
   const { classes } = props;
-
   return (
-    <div className={classes.root}>
+    <>
       <Grid container justify="center" alignItems="center"> 
-        <Navbar/ > 
+        
       </Grid>
       <Grid container justify="center" alignItems="center"> 
-        <NavBar2 />
+       
       </Grid>
       <Grid container justify="center" alignItems="center"> 
-        <Chart />
-      </Grid>
-      <Grid className={classes.root.dense} container justify="center" alignItems="center"> 
-        <BudgetTable2 />
+        <Table />
       </Grid>
       <Grid container justify="center" alignItems="center"> 
         <BottomNav />
       </Grid>
-    </div>
+    </>
   );
 }
 
