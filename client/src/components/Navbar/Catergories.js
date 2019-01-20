@@ -17,6 +17,8 @@ import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import StarBorder from '@material-ui/icons/StarBorder';
 import Collapse from '@material-ui/core/Collapse';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+
 
 const styles = theme =>({
 
@@ -48,17 +50,11 @@ class NestedList extends React.Component {
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <PaymentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Transaction" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
         <PieChartIcon />
       </ListItemIcon>
       <ListItemText primary="Chart" />
     </ListItem>
-    <ListItem button onClick={this.handleClick}>
+    {/* <ListItem button onClick={this.handleClick}>
       <ListItemIcon>
         <CategoryIcon />
       </ListItemIcon>
@@ -92,31 +88,19 @@ class NestedList extends React.Component {
               </ListItemIcon>
               <ListItemText inset primary="Clothes" />
             </ListItem>
-            <ListItem button className={classes.nested}>
-              <ListItemIcon>
-                <StarBorder />
-              </ListItemIcon>
-              <ListItemText inset primary="Restaurant" />
-            </ListItem>
-            <ListItem button className={classes.nested}>
-              <ListItemIcon>
-                <StarBorder />
-              </ListItemIcon>
-              <ListItemText inset primary="Mortage" />
-            </ListItem>
-            <ListItem button className={classes.nested}>
-              <ListItemIcon>
-                <StarBorder />
-              </ListItemIcon>
-              <ListItemText inset primary="Other" />
-            </ListItem>
           </List>
-        </Collapse>
+        </Collapse> */}
         <ListItem button >
       <ListItemIcon>
         <AttachMoneyIcon />
       </ListItemIcon>
       <ListItemText primary="Budgets" />
+    </ListItem>
+    <ListItem button >
+      <ListItemIcon>
+        <AccountCircle />
+      </ListItemIcon>
+      <ListItemText primary="About Us" />
     </ListItem>
     </List>
   );

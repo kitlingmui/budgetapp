@@ -8,9 +8,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import TextInput from '../textInput/textInput'
-import Grid from '@material-ui/core/Grid';
-import { red } from '@material-ui/core/colors';
+
 
 const CustomTableCell = withStyles(theme => ({
   head: {
