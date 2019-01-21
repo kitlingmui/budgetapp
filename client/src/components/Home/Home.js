@@ -75,7 +75,7 @@ class Home extends Component {
           name="email"
           autoComplete="email"
           margin="normal"
-          InputProps={{disableUnderline: true,}}
+          InputProps={{ disableUnderline: true, }}
         />
         </Grid>
         <Grid container justify="center" alignItems="center">
@@ -87,7 +87,7 @@ class Home extends Component {
           type="password"
           autoComplete="current-password"
           margin="normal"
-          InputProps={{disableUnderline: true,}}
+          InputProps={{ disableUnderline: true, }}
         />
       </Grid>
       </form>

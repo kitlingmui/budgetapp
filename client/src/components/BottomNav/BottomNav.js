@@ -8,7 +8,7 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
-
+import AddForm from './AddForm'
 const styles = theme => ({
   text: {
     paddingTop: theme.spacing.unit * 2,
@@ -91,15 +91,12 @@ function BottomAppBar(props) {
     <React.Fragment>
       <AppBar position="fixed" color="primary" className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
-        <IconButton color="inherit">
-              <MoreIcon />
-            </IconButton>
-          <Fab color="secondary" aria-label="Add" className={classes.fabButton}>
-            <AddIcon />
+          <Fab color="secondary" aria-label="Add">
+          <AddForm/>
           </Fab>
           <div>
             <IconButton color="inherit">
-              <SearchIcon  />
+              <MoreIcon  />
             </IconButton>
           </div>
         </Toolbar>
