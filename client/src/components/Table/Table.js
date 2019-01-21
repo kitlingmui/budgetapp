@@ -9,6 +9,7 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import Divider from '@material-ui/core/Divider';
 import DeleteIcon from '@material-ui/icons/Delete';
 import TextInput from '../textInput/textInput';
+import TextField from '@material-ui/core/TextField';
 
 const styles = theme => ({
   root: {
@@ -34,41 +35,66 @@ class Table extends Component {
     const { classes } = this.props;
 
     return (
-      <List subheader={<ListSubheader className={classes.title}>Expense</ListSubheader>} className={classes.root}>    
-          <ListItem
-            button
-            selected={this.state.selectedIndex === 2}
-            onClick={event => this.handleListItemClick(event, 2)}
-          >
-            <ListItemText primary="Rent" />
-            <TextInput/ >
-            <ListItemIcon>
-              <DeleteIcon />
-            </ListItemIcon>
-          </ListItem>
-          <ListItem
-            button
-            selected={this.state.selectedIndex === 3}
-            onClick={event => this.handleListItemClick(event, 3)}
-          >
-            <ListItemText primary="Utilites" />
-            <TextInput/ >
-            <ListItemIcon>
-              <DeleteIcon />
-            </ListItemIcon>
-          </ListItem>
-          <ListItem
-            button
-            selected={this.state.selectedIndex === 4}
-            onClick={event => this.handleListItemClick(event, 4)}
-          >
-            <ListItemText primary="Car insurance" />
-            <TextInput/ >
-            <ListItemIcon>
-              <DeleteIcon />
-            </ListItemIcon>
-          </ListItem>
-      </List>
+      <div className={classes.root}>
+          <List subheader={<ListSubheader className={classes.title}>Select Your Budget Date</ListSubheader>}>
+              <ListItem>
+                  <TextField InputLabelProps={{ shrink: true }}
+                    autoFocus
+                    margin="dense"
+                    id="date"
+                    label=""
+                    type="date"
+                    fullWidth
+                    InputProps={{ disableUnderline: true, }}
+                  />
+              </ListItem>
+          </List> 
+          <Divider/>
+          <List subheader={<ListSubheader className={classes.title}>Enter Your Total Income</ListSubheader>}>  
+              <ListItem>
+                <TextInput/ >
+              </ListItem>
+          </List>  
+          <Divider/>
+          <List subheader={<ListSubheader className={classes.title}>Expense</ListSubheader>}>    
+              <ListItem
+                button
+                selected={this.state.selectedIndex === 2}
+                onClick={event => this.handleListItemClick(event, 2)}
+              >
+                <ListItemText primary="Rent" />
+                <TextInput/ >
+                <ListItemIcon>
+                  <DeleteIcon />
+                </ListItemIcon>
+              </ListItem>
+
+              <ListItem
+                button
+                selected={this.state.selectedIndex === 3}
+                onClick={event => this.handleListItemClick(event, 3)}
+              >
+                <ListItemText primary="Utilites" />
+                <TextInput/ >
+                <ListItemIcon>
+                  <DeleteIcon />
+                </ListItemIcon>
+              </ListItem>
+
+              <ListItem
+                button
+                selected={this.state.selectedIndex === 4}
+                onClick={event => this.handleListItemClick(event, 4)}
+              >
+                <ListItemText primary="Car insurance" />
+                <TextInput/ >
+                <ListItemIcon>
+                  <DeleteIcon />
+                </ListItemIcon>
+              </ListItem>
+
+          </List>
+      </div>
     );
   }
 }
