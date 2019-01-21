@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import BottomNav from '../BottomNav';
-import Table from '../Table/Table'
+import Table from '../Table'
 
 
 const styles = theme => ({
@@ -40,7 +40,6 @@ const styles = theme => ({
 });
 
 
-
 class MainPage extends Component {
 
   render () {
@@ -48,11 +47,9 @@ class MainPage extends Component {
   const { classes } = this.props;
   return (
     <>
-      <Grid container justify="center" alignItems="center"> 
-        
+      <Grid container justify="center" alignItems="center">      
       </Grid>
-      <Grid container justify="center" alignItems="center"> 
-       
+      <Grid container justify="center" alignItems="center">      
       </Grid>
       <Grid container justify="center" alignItems="center"> 
         <Table />
