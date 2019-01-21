@@ -86,7 +86,7 @@ const styles = theme => ({
   },
   appName: {
     fontSize: "18px",
-    color: "white"
+    color: "white",
   }
 });
 
@@ -136,8 +136,14 @@ render () {
         <List>
         {['Calendar', 'Chart', 'Budgets','About us'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index  === 0 ? <CalendarTodayIcon /> : index  === 1 ? <PieChartIcon /> : 
-              index === 2 ? <AttachMoneyIcon />  : index === 3 ?<AccountCircle /> : <AccountCircle />}</ListItemIcon>
+              <ListItemIcon>
+                   {
+                      index === 0 ? <CalendarTodayIcon /> : 
+                      index === 1 ? <PieChartIcon /> : 
+                      index === 2 ? <AttachMoneyIcon />  : 
+                      index === 3 ? <AccountCircle />  : <AccountCircle />
+                   }
+              </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
             
