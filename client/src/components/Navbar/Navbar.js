@@ -74,7 +74,7 @@ const styles = theme => ({
   },
   appName: {
     fontSize: "18px",
-    color: "white"
+    color: "white",
   }
 });
 

@@ -8,7 +8,8 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-
+import { red } from '@material-ui/core/colors';
+import TextInput from '../textInput/textInput';
 
 const CustomTableCell = withStyles(theme => ({
   head: {
@@ -87,8 +88,10 @@ class BudgetSummary extends Component {
 
   render() {
     const { classes } = this.props;
+    const { budgets } = this.state.budgets;
+
     return (   
-      <>
+      <> 
        <Grid container justify="center" alignItems="center"> 
           <Paper className={classes.root}>
             <Table className={classes.table}>
@@ -104,13 +107,13 @@ class BudgetSummary extends Component {
                   return (
                     <TableRow className={classes.row} key={this.state.budgets.id}>
                       <CustomTableCell align="left" component="th" scope="row">
-                        'TBA'
+                        {this.state.budgets.catagory}
                       </CustomTableCell>
                       <CustomTableCell align="right">
                         'TBA'
                       </CustomTableCell>
                       <CustomTableCell align="right">
-                        'TBA'
+                        <TextInput/ >
                       </CustomTableCell>
                     </TableRow>
                   );

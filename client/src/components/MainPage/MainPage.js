@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
 import BottomNav from '../BottomNav';
-import Table from '../Table/Table'
+import Table from '../Table'
 
 const data = [
   { name: 'Jan', Savings: 50, Spendings: 300 },
@@ -59,7 +59,6 @@ const styles = theme => ({
 });
 
 
-
 class MainPage extends Component {
 
   render () {
@@ -67,11 +66,9 @@ class MainPage extends Component {
   const { classes } = this.props;
   return (
     <>
-      <Grid container justify="center" alignItems="center"> 
-        
+      <Grid container justify="center" alignItems="center">      
       </Grid>
-      <Grid container justify="center" alignItems="center"> 
-       
+      <Grid container justify="center" alignItems="center">      
       </Grid>
       <Grid container justify="center" alignItems="center"> 
         <Table />
