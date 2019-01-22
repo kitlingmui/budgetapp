@@ -5,20 +5,10 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import MenuIcon from '@material-ui/icons/Menu';
-
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
-import PieChartIcon from '@material-ui/icons/PieChart';
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import Grid from '@material-ui/core/Grid';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-
-
 import Button from '@material-ui/core/Button';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
@@ -28,12 +18,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import Avatar from '@material-ui/core/Avatar';
 import { Link } from 'react-router-dom';
-
-
 import Tabs from '@material-ui/core/Tabs';
 import NoSsr from '@material-ui/core/NoSsr';
 import Tab from '@material-ui/core/Tab';
-
+import Catergories from './Catergories'
 
 function TabContainer(props) {
   return (
@@ -86,7 +74,7 @@ const styles = theme => ({
   },
   appName: {
     fontSize: "18px",
-    color: "white"
+    color: "white",
   }
 });
 
@@ -142,6 +130,7 @@ render () {
             </ListItem>
           ))}
         </List>
+
       </div>
     );
   return (
