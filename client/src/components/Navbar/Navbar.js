@@ -121,7 +121,16 @@ render () {
         </Grid>
         </List>
         <Divider /> 
-        <Catergories/>
+        <List>
+        {[<Link to='/AboutUs'>Calender</Link>, <Link to='/AboutUs'>Chart</Link>, <Link to='/AboutUs'>Budgets</Link>,<Link to='/AboutUs'>About Us</Link>].map((text, index) => (
+            <ListItem button key={text}>
+              <ListItemIcon>{index  === 0 ? <CalendarTodayIcon /> : index  === 1 ? <PieChartIcon /> : 
+              index === 2 ? <AttachMoneyIcon />  : index === 3 ?<AccountCircle /> : <AccountCircle />}</ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
+
       </div>
     );
   return (
