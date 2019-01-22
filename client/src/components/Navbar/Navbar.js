@@ -21,7 +21,16 @@ import { Link } from 'react-router-dom';
 import Tabs from '@material-ui/core/Tabs';
 import NoSsr from '@material-ui/core/NoSsr';
 import Tab from '@material-ui/core/Tab';
-import Catergories from './Catergories'
+import Catergories from './Catergories';
+
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import PieChartIcon from '@material-ui/icons/PieChart';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+
 
 function TabContainer(props) {
   return (
