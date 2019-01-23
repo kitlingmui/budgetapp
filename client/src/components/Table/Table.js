@@ -10,6 +10,11 @@ import Divider from '@material-ui/core/Divider';
 import DeleteIcon from '@material-ui/icons/Delete';
 import TextInput from '../textInput/textInput';
 import TextField from '@material-ui/core/TextField';
+import Picker from 'react-month-picker'
+import 'date-fns';
+import Grid from '@material-ui/core/Grid';
+import DateFnsUtils from '@date-io/date-fns';
+import { MuiPickersUtilsProvider, TimePicker, DatePicker } from 'material-ui-pickers';
 
 const styles = theme => ({
   root: {
@@ -27,10 +32,6 @@ class Table extends Component {
     selectedIndex: 1,
   };
 
-  handleListItemClick = (event, index) => {
-    this.setState({ selectedIndex: index });
-  };
-
   render() {
     const { classes } = this.props;
 
@@ -42,7 +43,7 @@ class Table extends Component {
                     autoFocus
                     margin="dense"
                     id="date"
-                    label=""
+                    label="DATE"
                     type="date"
                     fullWidth
                     InputProps={{ disableUnderline: true, }}
