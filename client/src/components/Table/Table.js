@@ -96,7 +96,7 @@ class Table extends Component {
   };
 
   checkexist = () => {
-    console.log('checkexist')
+    console.log(' cal checkexist')
     console.log(this.state.budgets) 
     console.log(this.state.budgets.length) 
 
