@@ -1,13 +1,13 @@
 const express = require("express");
 const path = require("path");
-const PORT = process.env.PORT || 135;
+const PORT = process.env.PORT || 3001;
 const app = express();
 const bodyparser = require('body-parser');
 const mongoose = require('mongoose');
 
 
 // Define middleware here
-app.use(express.urlencoded({ extendnpmed: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {

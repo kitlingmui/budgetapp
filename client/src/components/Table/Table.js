@@ -15,7 +15,9 @@ import 'date-fns';
 import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider, TimePicker, DatePicker } from 'material-ui-pickers';
-
+import DayPicker from 'react-day-picker';
+import 'react-day-picker/lib/style.css';
+import AddTable from './AddTable'
 const styles = theme => ({
   root: {
     width: '100%',
@@ -37,17 +39,9 @@ class Table extends Component {
 
     return (
       <div className={classes.root}>
-          <List subheader={<ListSubheader className={classes.title}>Select Your Budget Date</ListSubheader>}>
+          <List subheader={<ListSubheader className={classes.title}>Select Your Budget Month</ListSubheader>}>
               <ListItem>
-                  <TextField InputLabelProps={{ shrink: true }}
-                    autoFocus
-                    margin="dense"
-                    id="date"
-                    label="DATE"
-                    type="date"
-                    fullWidth
-                    InputProps={{ disableUnderline: true, }}
-                  />
+              <DayPicker canChangeDate={false} />
               </ListItem>
           </List> 
           <Divider/>
