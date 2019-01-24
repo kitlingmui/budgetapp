@@ -17,6 +17,7 @@ import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider, TimePicker, DatePicker } from 'material-ui-pickers';
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
+
 const styles = theme => ({
   root: {
     width: '100%',
