@@ -1,25 +1,21 @@
 import React, { Component } from 'react';
+import Navbar from '../Navbar'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import { Typography } from '@material-ui/core';
+import Chart from '../Chart';
 import BottomNav from '../BottomNav';
-import Table from '../Table'
+
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    width: '100%',
-    maxWidth: '360px',
-    backgroundColor: theme.palette.background.paper,
   },
   demo: {
     height: 200,
   },
   control: {
     padding: theme.spacing.unit * 2,
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
   },
   dense: {
     marginTop: 16,
@@ -41,32 +37,28 @@ const styles = theme => ({
   }
 });
 
-
-class MainPage extends Component {
-
-  render () {
+class Spendings extends Component{
+  
+render() {
 
   const { classes } = this.props;
+
   return (
-    <>
-      <Grid container justify="center" alignItems="center">      
-      </Grid>
-      <Grid container justify="center" alignItems="center">      
-      </Grid>
+    <div className={classes.root}>
+    <h1>Spendings</h1>
       <Grid container justify="center" alignItems="center"> 
-        <Table />
+        <Chart />
       </Grid>
       <Grid container justify="center" alignItems="center"> 
         <BottomNav />
       </Grid>
-    </>
-  );
+    </div>
+  )
 }
 }
 
-MainPage.propTypes = {
+Spendings.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(MainPage);
-  
+export default withStyles(styles)(Spendings);
