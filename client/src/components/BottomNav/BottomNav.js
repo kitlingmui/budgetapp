@@ -18,6 +18,9 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import TextField from '@material-ui/core/TextField';
 import Fab from '@material-ui/core/Fab';
+import DayPicker from 'react-day-picker';
+import 'react-day-picker/lib/style.css'
+
 const styles = {
   appBar: {
     position: "fixed",
@@ -88,15 +91,7 @@ class FullScreenDialog extends React.Component {
             <DialogContentText>
               Please add in your budget
             </DialogContentText>
-            <TextField InputLabelProps={{ shrink: true }}
-              autoFocus
-              margin="dense"
-              id="date"
-              label="Date"
-              type="date"
-              fullWidth
-              InputProps={{ disableUnderline: true, }}
-            />
+            <DayPicker canChangeDate={false} />
              <TextField
               autoFocus
               margin="dense"
