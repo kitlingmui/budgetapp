@@ -50,7 +50,7 @@ class Table extends Component {
     initialbudgets: [ {
                       username: 'team6',
                       month: Moment(new Date()).format("MM"),
-                      year: Moment(new Date()).format("YYYY"),
+                      year: Moment(new Date()).format("YYYY"),   
                       income: 0,
                       expenses: [
                                   {
@@ -67,9 +67,10 @@ class Table extends Component {
                                   },
                                 ]
                       }
-                    ],
+                    ],             
     budgets: [], 
-    allbudgets: []              
+    allbudgets: [],
+    setbudgets: [],           
   };
 
   // checkexist = () => {
@@ -89,9 +90,44 @@ class Table extends Component {
 
   // load all budgets when page up
   componentWillMount() {
-    // this.createmybudget(this.state.initialbudgets)
-    this.getonebudget(this.state.selectedusername, this.state.selectedmonth, this.state.selectedyear)
-    // console.log("array:" + this.state.budgets.length)
+    this.state.allbudgets = []
+    this.getallbudget()
+    console.log(this.state.allbudgets)
+    let isExist = false
+    for (let i = 0; i < this.state.allbudgets.length; i++) {
+      if ( (this.state.allbudgets[i].month == this.state.selectedmonth ) &&
+           (this.state.allbudgets[i].year == this.state.selecteyear ) )
+      {
+        isExist = true;
+      }
+    }
+
+    if (!isExist) {
+      console.log(this.state.selectedyear)
+      console.log(this.state.selectedmonth)
+      console.log(this.state.budgets)
+      let newbudgets = [{
+                          username: this.state.selectedusername,
+                          month: this.state.selectedmonth,
+                          year:  this.state.selectedyear,  
+                          income: 0,
+                          expenses: [
+                                      {
+                                        catagory: 'Rent',
+                                        budgetamt: 0
+                                      },
+                                      {
+                                        catagory: 'Utilites',
+                                        budgetamt: 0
+                                      },
+                                      {
+                                        catagory: 'Car Insurance',
+                                        budgetamt: 0
+                                      },
+                                    ]
+                      }]
+      this.createmybudget(newbudgets)
+    }
   }
 
   // When the component mounts, load budget
@@ -105,7 +141,7 @@ class Table extends Component {
   // initial create budget when no budget find
   createmybudget = bg => {
     createBudget(bg)
-      .then(res => this.setState({ allbudgets: res.data }))
+      .then(res => this.setState({ budgets: res.data }))
       .catch(err => console.log(err));
   }
   
@@ -122,10 +158,10 @@ class Table extends Component {
   getonebudget = (user, month, year) => {
     getmyBudget(user, month, year)
       .then(res => {
-          console.log(res.data) 
-          let budgets = []
-          budgets.push(res.data)
-          this.setState({budgets})
+            console.log(res.data)
+            let budgets = []
+            budgets.push(res.data)
+            this.setState({budgets})
       })
       .catch(err => console.log(err)) 
   }
@@ -158,9 +194,51 @@ class Table extends Component {
 
     this.state.selectedmonth = Moment(value).format("MM")
     this.state.selectedyear = Moment(value).format("YYYY")
-    this.getonebudget(this.state.selectedusername, this.state.selectedmonth, this.state.selectedyear)
-    console.log(this.state.budgets)
     
+    this.state.allbudgets = []
+    this.getallbudget()
+    console.log(this.state.allbudgets)
+    let isExist = false
+    for (let i = 0; i < this.state.allbudgets.length; i++) {
+      if ( (this.state.allbudgets[i].month == this.state.selectedmonth ) &&
+           (this.state.allbudgets[i].year == this.state.selecteyear ) )
+      {
+        isExist = true;
+        // console.log(this.state.allbudgets[i].month)
+        // console.log(this.state.selectedmonth)
+        // console.log(this.state.allbudgets[i].year)
+        // console.log(this.state.selectedyear)
+        // console.log('true')
+      }
+    }
+
+    if (isExist) {
+      this.getonebudget(this.state.selectedusername, this.state.selectedmonth, this.state.selectedyear)
+    }
+    else {
+      let newbudgets = [{
+                          username: this.state.selectedusername,
+                          month: this.state.selectedmonth,
+                          year:  this.state.selectedyear,  
+                          income: 0,
+                          expenses: [
+                                      {
+                                        catagory: 'Rent',
+                                        budgetamt: 0
+                                      },
+                                      {
+                                        catagory: 'Utilites',
+                                        budgetamt: 0
+                                      },
+                                      {
+                                        catagory: 'Car Insurance',
+                                        budgetamt: 0
+                                      },
+                                    ]
+                      }]
+      this.createmybudget(newbudgets)
+      // this.getonebudget(this.state.selectedusername, this.state.selectedmonth, this.state.selectedyear)                 
+    }
   };
 
 
@@ -185,7 +263,7 @@ class Table extends Component {
  
     return (
       <div className={classes.root}>
-        <List subheader={<ListSubheader className={classes.title}>Select Your Budget Date</ListSubheader>}>
+        <List subheader={<ListSubheader className={classes.title}>Select Your Budget Month</ListSubheader>}>
           <ListItem>
             <TextField InputLabelProps={{ shrink: true }}
               autoFocus
