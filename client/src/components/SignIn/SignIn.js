@@ -65,13 +65,12 @@ class Home extends Component {
     const { classes } = this.props;
     return (
       <>
-    
-      <div id='hero'>
         <Grid container justify="center" alignItems="center" className={classes.margin}> 
           <img src="./images/piggy.jpg" alt='piggy'/>
         </Grid>
         <form className={classes.container} noValidate autoComplete="off">
-        {/* <Grid container justify="center" alignItems="center" >
+        
+        <Grid container justify="center" alignItems="center" >
         <TextField
         required
           id="HomeEmail"
@@ -95,20 +94,17 @@ class Home extends Component {
           margin="normal"
           InputProps={{ disableUnderline: true, }}
         />
-      </Grid> */}
+      </Grid>
       </form>
-
       <Grid container justify="center" alignItems="center">
-        <Button  variant="contained" color="primary" className={classes.button} href='/Account'>
-          Sign up (It's Free!)
+        <Button  variant="contained" color="primary" className={classes.button} href='../MainPage'>
+          Sign In 
         </Button>
       </Grid>
-      
-      
       <br></br>
       <Grid container justify="center" alignItems="center">
-        <Typography>Have an account?</Typography>
-        <a href='../SignIn'>&nbsp;Sign in</a>
+        <Typography>Don't have an account?</Typography>
+        <a href='../Account'>&nbsp;Sign up now</a>
       </Grid>
       <br></br>
       {/* <Grid container justify="center" alignItems="center">
@@ -116,7 +112,6 @@ class Home extends Component {
         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Terms and Conditions</a>
       </div>
       </Grid> */}
-    </div>
       </>
     )
   }
@@ -126,7 +121,3 @@ class Home extends Component {
   };
 
 export default withStyles(styles)(Home);
-
-
-
-

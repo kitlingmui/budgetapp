@@ -91,7 +91,7 @@ function BottomAppBar(props) {
     <React.Fragment>
       <AppBar position="fixed" color="primary" className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
-          <Fab color="secondary" aria-label="Add">
+          <Fab color="secondary" aria-label="Add" className={classes.fabButton}>
           <AddForm/>
           </Fab>
           <div>

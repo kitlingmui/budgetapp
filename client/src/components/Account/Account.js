@@ -32,7 +32,10 @@ const styles = theme => ({
   },
   button: {
     margin: theme.spacing.unit,
+    width: 180,
+    height: 45
   },
+
   input: {
     display: 'none',
   }
@@ -60,7 +63,7 @@ class Account extends Component {
             <img src="./images/piggy.jpg" alt='piggy'/>
           </Grid>
           <Grid container justify="center" alignItems="center">
-            <Typography variant='h5'>Sign Up And Get Saving!</Typography>
+            <Typography variant='h5'>Create My Account</Typography>
           </Grid>
         <form className={classes.container} noValidate autoComplete="off">
           <Grid container justify="center" alignItems="center">
@@ -111,14 +114,17 @@ class Account extends Component {
             </Grid>
           </Grid>
         </form>
+        <br></br>
         <Grid container justify="center" alignItems="center">
-          <Button variant="contained" color="secondary" className={classes.button} href='/MainPage'>
-            Create Account
+          <Button variant="contained" color="primary" className={classes.button} href='/MainPage'>
+            Sign Up
           </Button>
         </Grid>
+        <br></br>
         <Grid container justify="center" alignItems="center">
-          <Typography>Already have an account? </Typography><Link to='/'> Sign in </Link>
+          <Typography>Already have an account? </Typography><Link to='/SignIn'>&nbsp;Sign in</Link>
         </Grid>
+        <br></br>
         </>
       );
     }
