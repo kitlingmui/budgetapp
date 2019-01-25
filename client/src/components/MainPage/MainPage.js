@@ -66,13 +66,15 @@ class MainPage extends Component {
   const { classes } = this.props;
   return (
     <>
+      
       <Grid container justify="center" alignItems="center">      
       </Grid>
       <Grid container justify="center" alignItems="center">      
       </Grid>
-      <Grid container justify="center" alignItems="center"> 
+      <Grid container justify="center" alignItems="center" > 
         <Table />
       </Grid>
+      
       <Grid container justify="center" alignItems="center"> 
         <BottomNav />
       </Grid>

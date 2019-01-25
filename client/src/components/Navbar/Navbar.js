@@ -54,7 +54,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   margin: {
-    marginTop: 50
+    marginTop: 50,
   },
   grow: {
     flexGrow: 1,
@@ -210,7 +210,7 @@ render () {
           textColor="primary"
           centered
         >
-          <Tab label="Budgets" href='/MainPage' />
+          <Tab  label="Budgets" href='/MainPage' />
           <Tab label="Savings" href='/Savings'/>
           <Tab label="Spendings" href='/Spendings'/>
         </Tabs>
