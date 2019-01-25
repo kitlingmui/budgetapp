@@ -8,14 +8,14 @@ router.route("/createbudget")
 router.route("/getbudget")
     .get(budgetsControllers.getbudget)
 
-router.route("/deletexpense/:id")
-    .delete(budgetsControllers.removeexpense);
-
-router.route("/updatexpense/:id")
-    .put(budgetsControllers.updateexpense);
-
 router.route("/getmybudget/:username/:month/:year")
     .get(budgetsControllers.getonebudget)
+
+router.route("/updatemybudget/:id")
+    .put(budgetsControllers.updatebudget);
+
+router.route("/deletexpense/:id")
+    .delete(budgetsControllers.removeexpense);
 
 
 
