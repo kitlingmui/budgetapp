@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import textInput from '../textInput/textInput'
 const styles = theme => ({
 
   });
@@ -12,8 +13,6 @@ class AddTable extends React.Component {
         items: [{ name: "" }]
       };
     }
-  
-    // ...
   
     itemNameChange = idx => evt => {
       const newitems = this.state.items.map((item, sidx) => {

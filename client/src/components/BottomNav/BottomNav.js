@@ -45,15 +45,35 @@ function Transition(props) {
 }
 
 class FullScreenDialog extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {expense: '', amount: ''};
+
+    // this.handleChange = this.handleChange.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange = (event) => {
+    this.setState({expense: event.target.expense,amount: event.target.amount});
+  }
+  handleSubmit = (event) =>{
+    event.preventDefault();
+    var item = {expense: this.state.expense,
+                amount: this.state.amount}
+
+    }
   state = {
     open: false,
   };
-
   handleClickOpen = () => {
     this.setState({ open: true });
   };
 
   handleClose = () => {
+    this.setState({ open: false });
+  };
+
+  addItem = () => {
     this.setState({ open: false });
   };
 
@@ -76,7 +96,7 @@ class FullScreenDialog extends React.Component {
         >
           <AppBar position='relative'>
             <Toolbar>
-              <IconButton color="inherit" onClick={this.handleClose} aria-label="Close">
+              <IconButton color="inherit" onClick={this.addItem} aria-label="Close">
                 <CloseIcon />
               </IconButton>
               <Typography variant="h6" color="inherit" className={classes.flex}>
@@ -98,26 +118,23 @@ class FullScreenDialog extends React.Component {
               id="amount"
               label="Amount"
               type="number"
+              value={this.state.amount} 
+              onChange={this.handleChange}
               fullWidth
-              InputProps={{ disableUnderline: true, }}
+              InputProps={{ disableUnderline: true }}
+              InputLabelProps={{ shrink: true }}
+              fullWidth
             />
              <TextField
               autoFocus
               margin="dense"
-              id="merchant"
-              label="Merchant"
+              id="name"
+              label="Name"
               type="string"
+              value={this.state.expense} 
+              onChange={this.handleChange}
+              InputLabelProps={{ shrink: true }}
               fullWidth
-              
-            />
-             <TextField
-              autoFocus
-              margin="dense"
-              id="reason"
-              label="Reason"
-              type="string"
-              fullWidth
-             
             />
           </DialogContent>
         </Dialog>

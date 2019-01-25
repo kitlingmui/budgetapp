@@ -51,7 +51,7 @@ class Table extends Component {
               </ListItem>
           </List>  
           <Divider/>
-          <List subheader={<ListSubheader className={classes.title}>Expense</ListSubheader>}>    
+          <List subheader={<ListSubheader className={classes.title}>Expense</ListSubheader>}>   
               <ListItem
                 button
                 selected={this.state.selectedIndex === 2}
