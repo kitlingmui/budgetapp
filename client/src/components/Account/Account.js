@@ -60,7 +60,7 @@ class Account extends Component {
       return (
         <>
           <Grid container justify="center" alignItems="center"> 
-            <img src="./images/piggy.jpg" alt='piggy'/>
+            <img src="./images/newpiggy.png" alt='piggy'/>
           </Grid>
           <Grid container justify="center" alignItems="center">
             <Typography variant='h5'>Create My Account</Typography>

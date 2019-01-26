@@ -34,7 +34,6 @@ class textInput extends Component {
     const { classes } = this.props;
 
     return (
-      <div className={classes.root}>
         <TextField
             id="standard-number"
             label=""
@@ -51,7 +50,7 @@ class textInput extends Component {
             }}
             margin="normal"
           />
-      </div>
+
     );
   }
 }

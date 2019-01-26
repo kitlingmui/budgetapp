@@ -6,21 +6,6 @@ import { Typography } from '@material-ui/core';
 import BottomNav from '../BottomNav';
 import Table from '../Table'
 
-const data = [
-  { name: 'Jan', Savings: 50, Spendings: 300 },
-  { name: 'Feb', Savings: 30, Spendings: 400 },
-  { name: 'Mar', Savings: 5000, Spendings: 4300 },
-  { name: 'Apr', Savings: 4780, Spendings: 2908 },
-  { name: 'May', Savings: 5000, Spendings: 4800 },
-  { name: 'Jun', Savings: 4390, Spendings: 3800 },
-  { name: 'Jul', Savings: 4490, Spendings: 4300 },
-  { name: 'Aug', Savings: 4490, Spendings: 4300 },
-  { name: 'Sep', Savings: 4490, Spendings: 4300 },
-  { name: 'Oct', Savings: 4490, Spendings: 4300 },
-  { name: 'Nov', Savings: 4490, Spendings: 4300 },
-  { name: 'Dec', Savings: 4490, Spendings: 4300 },
-];
-
 
 
 const styles = theme => ({
@@ -55,6 +40,9 @@ const styles = theme => ({
   },
   input: {
     display: 'none',
+  },
+  margin: {
+    marginTop: 100
   }
 });
 
@@ -72,10 +60,9 @@ class MainPage extends Component {
       <Grid container justify="center" alignItems="center">      
       </Grid>
       <Grid container justify="center" alignItems="center" > 
-        <Table />
+        <Table  />
       </Grid>
-      
-      <Grid container justify="center" alignItems="center"> 
+      <Grid container justify="center" alignItems="center" className={classes.margin}> 
         <BottomNav />
       </Grid>
     </>

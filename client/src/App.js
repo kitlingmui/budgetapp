@@ -12,6 +12,8 @@ import AboutUs from './components/AboutUs';
 import BudgetSummary from './components/BudgetSummary';
 import SignIn from './components/SignIn';
 
+
+
 class App extends Component {
   
   render () {
@@ -29,7 +31,6 @@ class App extends Component {
             <Route path='/MainPage' component={MainPage} />
             <Route path='/Savings' component={Savings} />
             <Route path='/Spendings' component={Spendings} />
-            <Route path='/AboutUs' component={AboutUs} />
             <Route path='/BudgetSummary' component={BudgetSummary} />
             <Route path='/SignIn' component={SignIn} />
           </div>

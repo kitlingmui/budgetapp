@@ -66,7 +66,7 @@ class Home extends Component {
     return (
       <>
         <Grid container justify="center" alignItems="center" className={classes.margin}> 
-          <img src="./images/piggy.jpg" alt='piggy'/>
+          <img src="./images/newpiggy.png" alt='piggy'/>
         </Grid>
         <form className={classes.container} noValidate autoComplete="off">
         

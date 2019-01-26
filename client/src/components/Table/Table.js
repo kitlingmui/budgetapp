@@ -38,7 +38,7 @@ class Table extends Component {
     const { classes } = this.props;
 
     return (
-      <div className={classes.root}>
+      <>
           <List subheader={<ListSubheader className={classes.title}>Select Your Budget Month</ListSubheader>}>
               <ListItem>
               <DayPicker canChangeDate={false} />
@@ -89,7 +89,7 @@ class Table extends Component {
               </ListItem>
 
           </List>
-      </div>
+          </>
     );
   }
 }
