@@ -90,7 +90,11 @@ class Table extends Component {
 
   update = () => {
     console.log(this.props.value);
-    this.state.initialbudgets[0].expenses.push(this.props.value) ;
+    if (this.props.value != null)
+    {
+      this.state.initialbudgets[0].expenses.push(this.props.value) ;
+    }
+    else{}
     console.log(this.state.initialbudgets) ;
   }
   // initial create budget when no budget find
