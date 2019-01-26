@@ -7,7 +7,6 @@ import BottomNav from '../BottomNav';
 import Table from '../Table'
 
 
-
 const styles = theme => ({
   root: {
     flexGrow: 1,

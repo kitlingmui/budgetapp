@@ -21,7 +21,7 @@ const styles = theme => ({
 });
 
 
-class textInput extends Component {
+class textInput extends Component{
   state = {
     amount: '',
   };

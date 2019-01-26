@@ -5,6 +5,7 @@ const app = express();
 const bodyparser = require('body-parser');
 const mongoose = require('mongoose');
 
+const routes = require("./routes");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -15,12 +16,16 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define API routes here
+app.use(routes);
 
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/budgetapp", { useNewUrlParser: true});
+
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
