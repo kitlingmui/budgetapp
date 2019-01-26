@@ -21,8 +21,6 @@ import { Link } from 'react-router-dom';
 import Tabs from '@material-ui/core/Tabs';
 import NoSsr from '@material-ui/core/NoSsr';
 import Tab from '@material-ui/core/Tab';
-import Catergories from './Catergories';
-
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -131,7 +129,7 @@ render () {
         </List>
         <Divider /> 
         <List>
-        {[<Link to='/AboutUs'>Calender</Link>, <Link to='/AboutUs'>Chart</Link>, <Link to='/AboutUs'>Budgets</Link>,<Link to='/AboutUs'>About Us</Link>].map((text, index) => (
+        {[<Link to='/AboutUs'>Calendar</Link>, <Link to='/AboutUs'>Chart</Link>, <Link to='/AboutUs'>Budgets</Link>,<Link to='/AboutUs'>About Us</Link>].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index  === 0 ? <CalendarTodayIcon /> : index  === 1 ? <PieChartIcon /> : 
               index === 2 ? <AttachMoneyIcon />  : index === 3 ?<AccountCircle /> : <AccountCircle />}</ListItemIcon>
