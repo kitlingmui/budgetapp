@@ -55,8 +55,6 @@ class FullScreenDialog extends React.Component {
 
   handleChange = (event) => {
     this.setState({[event.target.name]: event.target.value });
-    console.log(event.target.amount)
-    console.log(event.target.expense)
     console.log(event.target.value)
   }
   handleSubmit = (event) =>{
@@ -64,8 +62,7 @@ class FullScreenDialog extends React.Component {
     var item = {expense: this.state.expense,
                 amount: this.state.amount}
     console.log(item)
-    alert('A name was submitted: ' + this.state.expense1);
-    //console.log(this.state.expense)
+    this.setState({ open: false });
 
     }
   state = {
@@ -108,8 +105,8 @@ class FullScreenDialog extends React.Component {
               <Typography variant="h6" color="inherit" className={classes.flex}>
                 Budget
               </Typography>
-              <form onSubmit={this.onSubmit}>
-              <Button color="inherit" onClick={this.handleClose}>
+              <form onSubmit={this.handleSubmit}>
+              <Button color="inherit" onClick={this.handleSubmit}>
                 save
               </Button>
               </form>
