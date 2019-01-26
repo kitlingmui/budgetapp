@@ -123,7 +123,7 @@ render () {
   const { open } = this.state;
 
     const sideList = (
-     <>
+      <div className={classes.list}>
         <List >
         <Grid container justify="center" alignItems="center"> 
           <img src="./images/newpiggy.png" alt='piggy'/>
@@ -139,7 +139,7 @@ render () {
             </ListItem>
           ))}
         </List>
-      </>
+      </div>
     );
   return (
     <>
