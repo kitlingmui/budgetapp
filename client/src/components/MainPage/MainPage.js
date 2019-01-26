@@ -48,6 +48,15 @@ const styles = theme => ({
 
 
 class MainPage extends Component {
+  constructor(){
+    super();
+    this.state = { value: null}
+    this.dynamic = this.dynamic.bind(this)
+ }
+ 
+ dynamic(value){
+    this.setState({value})
+ }
 
   render () {
 
@@ -58,10 +67,10 @@ class MainPage extends Component {
       <Grid container justify="center" alignItems="center">      
       </Grid>
       <Grid container justify="center" alignItems="center" > 
-        <Table  />
+        <Table  value={this.state.value}/>
       </Grid>
       <Grid container justify="center" alignItems="center" className={classes.margin}> 
-        <BottomNav />
+        <BottomNav value={this.state.value} dynamic={this.dynamic}/>
       </Grid>
     </>
   );
