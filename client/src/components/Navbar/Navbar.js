@@ -164,7 +164,7 @@ class NavBar extends Component {
                             <MenuList>
                               <MenuItem><Link to='/AccountInfo'>My Account</Link></MenuItem>
                               <MenuItem>
-                                <a href=" " onClick={this.onLogooutClick.bind(this)}>Logout</a>
+                                <a href="/" onClick={this.onLogooutClick.bind(this)}>Logout</a>
                               </MenuItem>
                             </MenuList>
                           </ClickAwayListener>
