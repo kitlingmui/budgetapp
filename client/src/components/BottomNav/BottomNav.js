@@ -47,19 +47,26 @@ function Transition(props) {
 class FullScreenDialog extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {expense: '', amount: ''};
+    this.state = {catagory: '', budgetamt: '', value: ''};
 
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+     this.handleChange = this.handleChange.bind(this);
+     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = (event) => {
-    this.setState({expense: event.target.expense,amount: event.target.amount});
+    this.setState({[event.target.name]: event.target.value });
+    console.log(event.target.value)
   }
   handleSubmit = (event) =>{
     event.preventDefault();
-    var item = {expense: this.state.expense,
-                amount: this.state.amount}
+    var item = {catagory: this.state.catagory,
+                budgetamt: this.state.budgetamt}
+
+    console.log(item)
+    this.setState({ open: false });
+    this.props.dynamic(item)
+
+    //this.props.initialbudgets.expenses.push(item)
 
     }
   state = {
@@ -102,25 +109,27 @@ class FullScreenDialog extends React.Component {
               <Typography variant="h6" color="inherit" className={classes.flex}>
                 Budget
               </Typography>
-              <Button color="inherit" onClick={this.handleClose}>
+              <form onSubmit={this.handleSubmit}>
+              <Button color="inherit" onClick={this.handleSubmit}>
                 save
               </Button>
-            </Toolbar>
+              </form>
+            </Toolbar>  
           </AppBar>
           <DialogContent>
             <DialogContentText>
-              Please add in your budget
+              Please add in your expenses
             </DialogContentText>
             <DayPicker canChangeDate={false} />
              <TextField
               autoFocus
               margin="dense"
-              id="amount"
+              id="budgetamt"
               label="Amount"
               type="number"
-              value={this.state.amount} 
+              name="budgetamt"
+              value={this.state.abudgetamt} 
               onChange={this.handleChange}
-              fullWidth
               InputProps={{ disableUnderline: true }}
               InputLabelProps={{ shrink: true }}
               fullWidth
@@ -128,10 +137,11 @@ class FullScreenDialog extends React.Component {
              <TextField
               autoFocus
               margin="dense"
-              id="name"
-              label="Name"
+              id="catagory"
+              label="Category"
               type="string"
-              value={this.state.expense} 
+              name="catagory"
+              value={this.state.catagory} 
               onChange={this.handleChange}
               InputLabelProps={{ shrink: true }}
               fullWidth
