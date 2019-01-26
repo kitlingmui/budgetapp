@@ -47,7 +47,7 @@ function Transition(props) {
 class FullScreenDialog extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {expense: '', amount: '', value: ''};
+    this.state = {catagory: '', budgetamt: '', value: ''};
 
      this.handleChange = this.handleChange.bind(this);
      this.handleSubmit = this.handleSubmit.bind(this);
@@ -59,10 +59,14 @@ class FullScreenDialog extends React.Component {
   }
   handleSubmit = (event) =>{
     event.preventDefault();
-    var item = {expense: this.state.expense,
-                amount: this.state.amount}
+    var item = {catagory: this.state.catagory,
+                budgetamt: this.state.budgetamt}
+
     console.log(item)
     this.setState({ open: false });
+    this.props.dynamic(item)
+
+    //this.props.initialbudgets.expenses.push(item)
 
     }
   state = {
@@ -120,11 +124,11 @@ class FullScreenDialog extends React.Component {
              <TextField
               autoFocus
               margin="dense"
-              id="amount"
-              label="Amount"
+              id="budgetamt"
+              label="budgetamt"
               type="number"
-              name="amount"
-              value={this.state.amount} 
+              name="budgetamt"
+              value={this.state.abudgetamt} 
               onChange={this.handleChange}
               InputProps={{ disableUnderline: true }}
               InputLabelProps={{ shrink: true }}
@@ -133,11 +137,11 @@ class FullScreenDialog extends React.Component {
              <TextField
               autoFocus
               margin="dense"
-              id="expense"
+              id="catagory"
               label="Name"
               type="string"
-              name="expense"
-              value={this.state.expense} 
+              name="catagory"
+              value={this.state.catagory} 
               onChange={this.handleChange}
               InputLabelProps={{ shrink: true }}
               fullWidth

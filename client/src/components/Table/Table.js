@@ -18,7 +18,7 @@ import { deleteExpense } from "../../utils/API";
 import Moment from 'moment';
 import Grid from '@material-ui/core/Grid';
 import AddTable from './AddTable'
-
+import Button from '@material-ui/core/Button';
 const styles = theme => ({
   root: {
     width: '100%',
@@ -66,17 +66,20 @@ class Table extends Component {
                                   },
                                 ]
                       }
-                    ],             
+                    ],          
     budgets: [], 
-    allbudgets: [],          
+    allbudgets: [],         
   };
 
 
 
   // load all budgets when page up
+  
   componentWillMount() {
     //this.createmybudget(this.state.initialbudgets)
-    this.getonebudget(this.state.selectedusername, this.state.selectedmonth, this.state.selectedyear) 
+    //this.state.initialbudgets[0].expenses.push(this.props.value) ; 
+    this.getonebudget(this.state.selectedusername, this.state.selectedmonth, this.state.selectedyear)
+
   }
 
 
@@ -85,7 +88,11 @@ class Table extends Component {
     this.getallbudget()    
   }
 
- 
+  update = () => {
+    console.log(this.props.value);
+    this.state.initialbudgets[0].expenses.push(this.props.value) ;
+    console.log(this.state.initialbudgets) ;
+  }
   // initial create budget when no budget find
   createmybudget = bg => {
     createBudget(bg)
@@ -153,6 +160,7 @@ class Table extends Component {
 
     if (isExist) {
       this.getonebudget(this.state.selectedusername, this.state.selectedmonth, this.state.selectedyear)  
+      
     }
     else {
       console.log('need to create budget for new month')
@@ -190,11 +198,13 @@ class Table extends Component {
     //   [name]: value
     // });
   handleIncomeChange = (e, index) => {
+    console.log(this.props.value)
     console.log("update income change")
     let budgets = this.state.budgets
     budgets[index].income = e.target.value
     this.setState({budgets})
     console.log('Input income:' + e.target.value)
+
   }
 
 
@@ -211,8 +221,7 @@ class Table extends Component {
   };
 
   render() {
-    const { classes } = this.props;
-
+    const { classes } = this.props;   
     return (
 
       <div className={classes.root}>
@@ -296,6 +305,10 @@ class Table extends Component {
             )
           }
         </List>
+
+        <Button color="secondary" onClick={this.update}>
+                Update
+        </Button>
       </div>
 
  )}  
