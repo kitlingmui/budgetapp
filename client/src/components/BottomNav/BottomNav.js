@@ -49,8 +49,8 @@ class FullScreenDialog extends React.Component {
     super(props);
     this.state = {expense: '', amount: ''};
 
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+     this.handleChange = this.handleChange.bind(this);
+     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = (event) => {
@@ -60,6 +60,7 @@ class FullScreenDialog extends React.Component {
     event.preventDefault();
     var item = {expense: this.state.expense,
                 amount: this.state.amount}
+    console.log(item)
 
     }
   state = {
