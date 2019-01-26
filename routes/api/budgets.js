@@ -14,9 +14,5 @@ router.route("/getmybudget/:username/:month/:year")
 router.route("/updatemybudget/:id")
     .put(budgetsControllers.updatebudget);
 
-router.route("/deletexpense/:id")
-    .delete(budgetsControllers.removeexpense);
-
-
 
 module.exports = router;

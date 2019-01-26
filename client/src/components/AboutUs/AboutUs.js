@@ -98,12 +98,12 @@ function MediaCard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
+          image="./images/kit.jpg"
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Kitt Ling
+            Kit Ling Mui
           </Typography>
           <Typography component="p">
             Created the database structure for number inout and chart functionality
