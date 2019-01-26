@@ -65,6 +65,7 @@ const styles = theme => ({
   },
   list: {
     width: 200,
+    backgroundColor: theme.palette.background.paper,
   },
 
   fullList: {
@@ -120,13 +121,12 @@ render () {
 
   const { classes } = this.props;
   const { open } = this.state;
-  const { value } = this.state;
 
     const sideList = (
       <div className={classes.list}>
         <List>
         <Grid container justify="center" alignItems="center"> 
-          <img src="./images/piggy.jpg" alt='piggy'/>
+          <img src="./images/newpiggy.png" alt='piggy'/>
         </Grid>
         </List>
         <Divider /> 
@@ -144,9 +144,7 @@ render () {
     );
   return (
     <>
-    <div className={classes.root}>
       <AppBar position="static">
-          <div>
         <AppBar position="fixed" color="primary" className={classes.appBar}>
         <Toolbar className={classes.toolbar}>      
           <Button onClick={this.toggleDrawer('left', true)}><MenuIcon /></Button>  
@@ -198,9 +196,8 @@ render () {
           </div>
           
         </SwipeableDrawer>   
-      </div>
       </AppBar>
-    </div>
+    
     
     <Paper className={classes.margin}>
         <Tabs

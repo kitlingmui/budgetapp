@@ -3,14 +3,12 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import CardMedia from '@material-ui/core/CardMedia';
+
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    background: './images/background.jpg'
   },
   demo: {
     height: 180,
@@ -41,7 +39,11 @@ const styles = theme => ({
   margin: {
     marginTop: 100,
   },
- 
+ container: {
+   flex: 1,
+   alignItems: 'center',
+   justifyContent: 'center'
+ }
 });
 
 
@@ -66,9 +68,8 @@ class Home extends Component {
     return (
       <>
     
-      <div id='hero'>
         <Grid container justify="center" alignItems="center" className={classes.margin}> 
-          <img src="./images/piggy.jpg" alt='piggy'/>
+          <img src="./images/newpiggy.png" alt='piggy'/>
         </Grid>
         <form className={classes.container} noValidate autoComplete="off">
         {/* <Grid container justify="center" alignItems="center" >
@@ -116,7 +117,6 @@ class Home extends Component {
         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Terms and Conditions</a>
       </div>
       </Grid> */}
-    </div>
       </>
     )
   }

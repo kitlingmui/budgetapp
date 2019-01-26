@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Navbar from '../Navbar'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Chart from '../Chart';
 import BottomNav from '../BottomNav';
+import NavBar from '../Navbar'
 
 
 const styles = theme => ({
@@ -44,15 +44,18 @@ render() {
   const { classes } = this.props;
 
   return (
-    <div className={classes.root}>
+    <>
+    <NavBar />
+    <Grid container justify="center" alignItems="center"> 
     <h1>Spendings</h1>
+    </Grid>
       <Grid container justify="center" alignItems="center"> 
         <Chart />
       </Grid>
       <Grid container justify="center" alignItems="center"> 
         <BottomNav />
       </Grid>
-    </div>
+    </>
   )
 }
 }
