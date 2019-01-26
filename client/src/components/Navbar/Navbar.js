@@ -26,8 +26,9 @@ import Catergories from './Catergories';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import AccountBalanceWallet from '@material-ui/icons/AccountBalanceWallet';
 import PieChartIcon from '@material-ui/icons/PieChart';
+import Description from '@material-ui/icons/Description';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
@@ -131,10 +132,10 @@ render () {
         </List>
         <Divider /> 
         <List>
-        {[<Link to='/AboutUs'>Calender</Link>, <Link to='/AboutUs'>Chart</Link>, <Link to='/AboutUs'>Budgets</Link>,<Link to='/AboutUs'>About Us</Link>].map((text, index) => (
+        {[<Link to='/MainPage'>Budgets</Link>, <Link to='/Savings'>Savings</Link>, <Link to='/Spendings'>Spendings</Link>,<Link to='/AboutUs'>About Us</Link>].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index  === 0 ? <CalendarTodayIcon /> : index  === 1 ? <PieChartIcon /> : 
-              index === 2 ? <AttachMoneyIcon />  : index === 3 ?<AccountCircle /> : <AccountCircle />}</ListItemIcon>
+              <ListItemIcon>{index  === 0 ? <AttachMoneyIcon /> : index  === 1 ? <AccountBalanceWallet /> : 
+              index === 2 ? <PieChartIcon />  : index === 3 ?<AccountCircle /> : <AccountCircle />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}

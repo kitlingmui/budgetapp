@@ -18,7 +18,7 @@ export const getmyBudget = function( username, month, year ) {
 
 // Update the budget with the given id
 export const updatemyBudget = function(id) {
-    return axios.put("/api/updatebudget/" + id)
+    return axios.put("/api/updatemybudget/" + id)
 }
 
 // Deletes the expense with the given id
