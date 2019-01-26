@@ -60,7 +60,7 @@ class FullScreenDialog extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-    <div>
+    <>
         <AppBar color="primary" className={classes.appBar}>
         <Button  onClick={this.handleClickOpen}>
         <Fab color="secondary" aria-label="Add" className={classes.fabButton}>
@@ -121,7 +121,7 @@ class FullScreenDialog extends React.Component {
             />
           </DialogContent>
         </Dialog>
-      </div>
+        </>
     );
   }
 }

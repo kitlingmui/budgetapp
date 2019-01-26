@@ -44,15 +44,17 @@ render() {
   const { classes } = this.props;
 
   return (
-    <div className={classes.root}>
+    <>
+    <Grid container justify="center" alignItems="center"> 
     <h1>Spendings</h1>
+    </Grid>
       <Grid container justify="center" alignItems="center"> 
         <Chart />
       </Grid>
       <Grid container justify="center" alignItems="center"> 
         <BottomNav />
       </Grid>
-    </div>
+    </>
   )
 }
 }
