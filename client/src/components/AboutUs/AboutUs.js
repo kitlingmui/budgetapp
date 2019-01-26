@@ -22,7 +22,7 @@ const styles = theme => ({
     maxWidth: 345,
   },
   media: {
-    height: 200,
+    height: 300,
   },
   heroUnit: {
     backgroundColor: theme.palette.background.transparent,
@@ -58,8 +58,8 @@ function MediaCard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image='./images/taylor.jpg'
-          title="Contemplative Reptile"
+          image='./images/taylor2.jpg'
+          title="Taylor"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
@@ -78,12 +78,12 @@ function MediaCard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
+          image='./images/kyle.jpg'
+          title='Kyle'
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Kyle
+            Kyle Macabasco
           </Typography>
           <Typography component="p">
             Developed the back end login and database query's for the application
@@ -98,15 +98,15 @@ function MediaCard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
+          image='./images/kit.jpg'
+          title="Kit"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Kitt Ling
+            Kit Ling Mui
           </Typography>
           <Typography component="p">
-            Created the database structure for number inout and chart functionality
+            Created the database structure for number input, form, and chart functionality
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -118,15 +118,15 @@ function MediaCard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
+          image='./images/hoangcao.jpg'
+          title="Hoang"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Hoang
+            Hoang Cao
           </Typography>
           <Typography component="p">
-            Developed the main form and adding button functionality
+            Developed the main form and budget adding button functionality
           </Typography>
         </CardContent>
       </CardActionArea>
