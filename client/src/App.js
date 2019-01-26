@@ -10,6 +10,9 @@ import Spendings from './components/Spendings';
 import NavBar from './components/Navbar';
 import AboutUs from './components/AboutUs';
 import BudgetSummary from './components/BudgetSummary';
+import SignIn from './components/SignIn';
+
+
 
 class App extends Component {
   
@@ -23,12 +26,13 @@ class App extends Component {
             <Route exact path='/' component={Home} />
             <Route path='/Account' component={Account} />
             <Route path='/AccountInfo' component={AccountInfo} />
+            <Route path='/AboutUs' component={AboutUs} />
             <Route path='/Home' component={Home} />
             <Route path='/MainPage' component={MainPage} />
             <Route path='/Savings' component={Savings} />
             <Route path='/Spendings' component={Spendings} />
-            <Route path='/AboutUs' component={AboutUs} />
             <Route path='/BudgetSummary' component={BudgetSummary} />
+            <Route path='/SignIn' component={SignIn} />
           </div>
         </Router>
         

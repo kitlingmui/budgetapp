@@ -54,42 +54,6 @@ class NestedList extends React.Component {
       </ListItemIcon>
       <ListItemText primary="Chart" />
     </ListItem>
-    {/* <ListItem button onClick={this.handleClick}>
-      <ListItemIcon>
-        <CategoryIcon />
-      </ListItemIcon>
-      <ListItemText primary="Categories" />
-      {this.state.open ? <ExpandLess /> : <ExpandMore />}
-    </ListItem>
-
-    <Collapse in={this.state.open} timeout="auto" unmountOnExit>
-          <List component="div" disablePadding>
-            <ListItem button className={classes.nested}>
-              <ListItemIcon>
-                <StarBorder />
-              </ListItemIcon>
-              <ListItemText inset primary="CellPhone" />
-            </ListItem>
-            <ListItem button className={classes.nested}>
-              <ListItemIcon>
-                <StarBorder />
-              </ListItemIcon>
-              <ListItemText inset primary="Utilities" />
-            </ListItem>
-            <ListItem button className={classes.nested}>
-              <ListItemIcon>
-                <StarBorder />
-              </ListItemIcon>
-              <ListItemText inset primary="Groceries" />
-            </ListItem>
-            <ListItem button className={classes.nested}>
-              <ListItemIcon>
-                <StarBorder />
-              </ListItemIcon>
-              <ListItemText inset primary="Clothes" />
-            </ListItem>
-          </List>
-        </Collapse> */}
         <ListItem button >
       <ListItemIcon>
         <AttachMoneyIcon />

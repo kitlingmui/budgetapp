@@ -44,9 +44,6 @@ render() {
     return (
       <>
       <Grid container justify="center" alignItems="center">
-        <Typography variant='h4'>Expenses</Typography>
-      </Grid>
-      <Grid container justify="center" alignItems="center">
         <MDBContainer>
           <Doughnut data={this.state.dataDoughnut} options={{ responsive: true }} />
         </MDBContainer>

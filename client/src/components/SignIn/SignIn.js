@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-
+import CardMedia from '@material-ui/core/CardMedia';
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
+    background: './images/background.jpg'
   },
   demo: {
     height: 180,
@@ -39,11 +41,7 @@ const styles = theme => ({
   margin: {
     marginTop: 100,
   },
- container: {
-   flex: 1,
-   alignItems: 'center',
-   justifyContent: 'center'
- }
+ 
 });
 
 
@@ -67,12 +65,12 @@ class Home extends Component {
     const { classes } = this.props;
     return (
       <>
-    
         <Grid container justify="center" alignItems="center" className={classes.margin}> 
           <img src="./images/newpiggy.png" alt='piggy'/>
         </Grid>
         <form className={classes.container} noValidate autoComplete="off">
-        {/* <Grid container justify="center" alignItems="center" >
+        
+        <Grid container justify="center" alignItems="center" >
         <TextField
         required
           id="HomeEmail"
@@ -96,20 +94,17 @@ class Home extends Component {
           margin="normal"
           InputProps={{ disableUnderline: true, }}
         />
-      </Grid> */}
+      </Grid>
       </form>
-
       <Grid container justify="center" alignItems="center">
-        <Button  variant="contained" color="primary" className={classes.button} href='/Account'>
-          Sign up (It's Free!)
+        <Button  variant="contained" color="primary" className={classes.button} href='../MainPage'>
+          Sign In 
         </Button>
       </Grid>
-      
-      
       <br></br>
       <Grid container justify="center" alignItems="center">
-        <Typography>Have an account?</Typography>
-        <a href='../SignIn'>&nbsp;Sign in</a>
+        <Typography>Don't have an account?</Typography>
+        <a href='../Account'>&nbsp;Sign up now</a>
       </Grid>
       <br></br>
       {/* <Grid container justify="center" alignItems="center">
@@ -126,7 +121,3 @@ class Home extends Component {
   };
 
 export default withStyles(styles)(Home);
-
-
-
-

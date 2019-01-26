@@ -6,6 +6,7 @@ import { Typography } from '@material-ui/core';
 import BottomNav from '../BottomNav';
 import Table from '../Table'
 
+
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -38,6 +39,9 @@ const styles = theme => ({
   },
   input: {
     display: 'none',
+  },
+  margin: {
+    marginTop: 100
   }
 });
 
@@ -49,14 +53,15 @@ class MainPage extends Component {
   const { classes } = this.props;
   return (
     <>
+      
       <Grid container justify="center" alignItems="center">      
       </Grid>
       <Grid container justify="center" alignItems="center">      
       </Grid>
-      <Grid container justify="center" alignItems="center"> 
-        <Table />
+      <Grid container justify="center" alignItems="center" > 
+        <Table  />
       </Grid>
-      <Grid container justify="center" alignItems="center"> 
+      <Grid container justify="center" alignItems="center" className={classes.margin}> 
         <BottomNav />
       </Grid>
     </>

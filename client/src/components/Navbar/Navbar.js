@@ -21,7 +21,16 @@ import { Link } from 'react-router-dom';
 import Tabs from '@material-ui/core/Tabs';
 import NoSsr from '@material-ui/core/NoSsr';
 import Tab from '@material-ui/core/Tab';
-import Catergories from './Catergories'
+import Catergories from './Catergories';
+
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import CalendarTodayIcon from '@material-ui/icons/CalendarToday';
+import PieChartIcon from '@material-ui/icons/PieChart';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+
 
 function TabContainer(props) {
   return (
@@ -45,7 +54,7 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.paper,
   },
   margin: {
-    marginTop: 50
+    marginTop: 50,
   },
   grow: {
     flexGrow: 1,
@@ -56,6 +65,7 @@ const styles = theme => ({
   },
   list: {
     width: 200,
+    
   },
 
   fullList: {
@@ -111,24 +121,30 @@ render () {
 
   const { classes } = this.props;
   const { open } = this.state;
-  const { value } = this.state;
 
     const sideList = (
       <div className={classes.list}>
         <List>
         <Grid container justify="center" alignItems="center"> 
-          <img src="./images/piggy.jpg" alt='piggy'/>
+          <img src="./images/newpiggy.png" alt='piggy'/>
         </Grid>
         </List>
         <Divider /> 
-        <Catergories/>
+        <List>
+        {[<Link to='/AboutUs'>Calender</Link>, <Link to='/AboutUs'>Chart</Link>, <Link to='/AboutUs'>Budgets</Link>,<Link to='/AboutUs'>About Us</Link>].map((text, index) => (
+            <ListItem button key={text}>
+              <ListItemIcon>{index  === 0 ? <CalendarTodayIcon /> : index  === 1 ? <PieChartIcon /> : 
+              index === 2 ? <AttachMoneyIcon />  : index === 3 ?<AccountCircle /> : <AccountCircle />}</ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
+
       </div>
     );
   return (
     <>
-    <div className={classes.root}>
       <AppBar position="static">
-          <div>
         <AppBar position="fixed" color="primary" className={classes.appBar}>
         <Toolbar className={classes.toolbar}>      
           <Button onClick={this.toggleDrawer('left', true)}><MenuIcon /></Button>  
@@ -180,9 +196,8 @@ render () {
           </div>
           
         </SwipeableDrawer>   
-      </div>
       </AppBar>
-    </div>
+    
     
     <Paper className={classes.margin}>
         <Tabs
@@ -192,7 +207,7 @@ render () {
           textColor="primary"
           centered
         >
-          <Tab label="Budgets" href='/MainPage' />
+          <Tab  label="Budgets" href='/MainPage' />
           <Tab label="Savings" href='/Savings'/>
           <Tab label="Spendings" href='/Spendings'/>
         </Tabs>
