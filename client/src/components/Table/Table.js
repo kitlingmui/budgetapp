@@ -14,7 +14,6 @@ import { createBudget } from "../../utils/API";
 import { getBudget } from "../../utils/API";
 import { getmyBudget } from "../../utils/API";
 import { updatemyBudget } from "../../utils/API";
-import { deleteExpense } from "../../utils/API";
 import Moment from 'moment';
 import Grid from '@material-ui/core/Grid';
 import AddTable from './AddTable'
@@ -40,53 +39,58 @@ const styles = theme => ({
 });
 
 class Table extends Component {
-  state = {
-    selectedIndex: 0,
-    selectedusername: "team6",
-    selecteddate: Moment(new Date()).format("YYYY-MM-DD"),
-    selectedmonth: Moment(new Date()).format("MM"),
-    selectedyear: Moment(new Date()).format("YYYY"),   
-    initialbudgets: [ {
-                      username: 'team6',
-                      month: Moment(new Date()).format("MM"),
-                      year: Moment(new Date()).format("YYYY"),   
-                      income: 0,
-                      expenses: [
-                                  {
-                                    catagory: 'Rent',
-                                    budgetamt: 0
-                                  },
-                                  {
-                                    catagory: 'Utilites',
-                                    budgetamt: 0
-                                  },
-                                  {
-                                    catagory: 'Car Insurance',
-                                    budgetamt: 0
-                                  },
-                                ]
-                      }
-                    ],          
-    budgets: [], 
-    allbudgets: [],         
-  };
+   state = {
+      selectedIndex: 0,
+      selectedusername: "team6",
+      selecteddate: Moment(new Date()).format("YYYY-MM-DD"),
+      selectedmonth: Moment(new Date()).format("MM"),
+      selectedyear: Moment(new Date()).format("YYYY"),   
+      initialbudgets: [ {
+                        username: 'team6',
+                        month: Moment(new Date()).format("MM"),
+                        year: Moment(new Date()).format("YYYY"),   
+                        income: 0,
+                        expenses: [
+                                    {
+                                      catagory: 'Rent',
+                                      budgetamt: 0
+                                    },
+                                    {
+                                      catagory: 'Utilites',
+                                      budgetamt: 0
+                                    },
+                                    {
+                                      catagory: 'Car Insurance',
+                                      budgetamt: 0
+                                    },
+                                  ]
+                        }
+                      ],             
+      budgets: [], 
+      allbudgets: [],          
+    }
 
 
-
+  
   // load all budgets when page up
   
   componentWillMount() {
-    //this.createmybudget(this.state.initialbudgets)
-    //this.state.initialbudgets[0].expenses.push(this.props.value) ; 
-    this.getonebudget(this.state.selectedusername, this.state.selectedmonth, this.state.selectedyear)
 
+    // this.createmybudget(this.state.initialbudgets)
+    // this.getonebudget(this.state.selectedusername, this.state.selectedmonth, this.state.selectedyear) 
+    this.getallbudget()   
   }
-
 
   // When the component mounts, load budget
-  componentDidMount() {
-    this.getallbudget()    
+  componentDidMount() {  
+    // console.log(this.state.allbudgets.length)
+    this.getonebudget(this.state.selectedusername, this.state.selectedmonth, this.state.selectedyear)   
   }
+
+  componentDidUpdate() {
+    
+  }
+
 
   update = () => {
     console.log(this.props.value);
@@ -97,6 +101,7 @@ class Table extends Component {
     else{}
     console.log(this.state.initialbudgets) ;
   }
+
   // initial create budget when no budget find
   createmybudget = bg => {
     createBudget(bg)
@@ -108,7 +113,9 @@ class Table extends Component {
   getallbudget = () => {
     getBudget()
       .then(res => {
-        this.setState({allbudgets: res.data})
+        this.setState({allbudgets: res.data}, function(){
+          console.log(this.state.allbudgets.length); 
+      }.bind(this));
       })
       .catch(err => console.log(err))
   };
@@ -126,20 +133,18 @@ class Table extends Component {
 
 
   // Update budget
-  updatebudget = (id) => {
+  updatebudget = id => {  
+    console.log('update my budget income')
+    console.log(id)
     updatemyBudget(id)
-      .then(res => this.setState({ budgets: res.data }))
+      .then(res => {
+        console.log(res.data)
+        let budgets = []
+        budgets.push(res.data)
+        this.setState({budgets})
+      } )
       .catch(err => console.log(err))
   }
-
-
-  // Delete an expense from database
-  deletemyExpense = id => {
-    deleteExpense(id)
-      .then(console.log("delete:" + id))
-      .catch(err => console.log(err));
-  };
-
 
 
   //Handle when Date change
@@ -167,7 +172,7 @@ class Table extends Component {
       
     }
     else {
-      console.log('need to create budget for new month')
+      console.log('Need to create budget for new selected month')
       let tempbudgets =  [ {
                             username: 'team6',
                             month: this.state.selectedmonth,
@@ -195,28 +200,36 @@ class Table extends Component {
   }
 
 
-
   // Handle when income change
-      // const { name, value } = event.target;
-    // this.setState({
-    //   [name]: value
-    // });
-  handleIncomeChange = (e, index) => {
-    console.log(this.props.value)
+
+  handleIncomeChange = (e, index, budgetid) => {
     console.log("update income change")
     let budgets = this.state.budgets
     budgets[index].income = e.target.value
     this.setState({budgets})
+    this.updatebudget(budgetid)
     console.log('Input income:' + e.target.value)
-
+    console.log("id:" + budgetid)
+    console.log('index' + index)
+    console.log(this.state.budgets)
   }
-
 
   handelExpenseChange = (e, bindex, eindex) => {
     let budgets = this.state.budgets
     budgets[bindex].expenses[eindex].budgetamt = e.target.value
     this.setState({budgets})
     console.log('Input expense value:' + e.target.value)
+  }
+
+
+  // Delete expense from budget
+  deletemyExpense = (bid, bIndex, index) => {
+    console.log("delete expense")
+    let budgets = this.state.budgets
+    budgets[bIndex].expenses.slice(index+1)
+    this.setState({budgets})
+    console.log(budgets)
+    this.updatebudget(bid)
   }
 
   // Handle selected expense action
@@ -265,7 +278,7 @@ class Table extends Component {
                     }}
                     margin="normal"
                     value={budget.income}
-                    onChange={event => this.handleIncomeChange(event, bIndex)}
+                    onChange={event => this.handleIncomeChange(event, bIndex, budget._id)}
                 />
                 </ListItem>
                 )
@@ -301,9 +314,9 @@ class Table extends Component {
                     }}
                     margin="normal"
                   />
-                  <ListItemIcon>
-                    <DeleteIcon className={classes.logo} onClick={() => this.deletemyExpense(expense._id)} />
-                  </ListItemIcon>
+                  {/* <ListItemIcon>
+                    <DeleteIcon className={classes.logo} onClick={() => this.deletemyExpense(budget._id, bIndex, index)} />
+                  </ListItemIcon> */}
                 </ListItem>
                 : null)
             )
