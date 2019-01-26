@@ -1,27 +1,34 @@
-const express = require("express");
-const path = require("path");
-const PORT = process.env.PORT || 3001;
+const express = require('express');
+const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
+const passport = require('passport');
+
+const users = require('./routes/api/users')
+const profile = require('./routes/api/profile')
+const posts = require('./routes/api/posts')
+
 const app = express();
-const bodyparser = require('body-parser');
-const mongoose = require('mongoose');
 
+//Bodyparser middlewear
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
-// Define middleware here
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
+//Connect to MongoDB
+mongoose.connect('mongodb://localhost/budget_db', { useNewUrlParser: true })
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log(err));
 
-// Define API routes here
+//Passport middleware
+app.use(passport.initialize());
 
-// Send every other request to the React app
-// Define any API routes before this runs
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+//Passport config
+require('./config/passport')(passport)
 
-app.listen(PORT, () => {
-  console.log(`🌎 ==> API server now on port ${PORT}!`);
-});
+//Use Routes
+app.use('/api/users', users);
+app.use('/api/profile', profile);
+app.use('/api/posts', posts);
+
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => console.log(`Server running on port ${port}`));

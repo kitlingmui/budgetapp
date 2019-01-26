@@ -54,11 +54,9 @@ const styles = theme => ({
 
 class User extends Component {
     state = {
-        name: 'Taylor',
-        lastName: 'Darnell',
-        Email: 'tdarnell@gmail.com'
+        name: 'Kyle Mac',
+        Email: 'kmac@gmail.com'
       };
-    
       handleChange = name => event => {
         this.setState({
           [name]: event.target.value,
@@ -69,28 +67,17 @@ class User extends Component {
   return (
       <>
     <Grid container justify="center" alignItems="center">
-      <Avatar alt="Remy Sharp" src="./images/taylor.jpg" className={classes.bigAvatar} />
+      <Avatar alt="Remy Sharp" src="" className={classes.bigAvatar} />
     </Grid>
     <hr/>
     <form className={classes.container} noValidate autoComplete="off">
     <Grid container justify="center" alignItems="center">
         <TextField
-          id="First-Name"
-          label="First Name"
+          id="Name"
+          label="Name"
           className={classes.textField}
           value={this.state.name}
           onChange={this.handleChange('name')}
-          margin="normal"
-          //variant="filled"
-          InputProps={{ disableUnderline: true, }}
-        />
-      </Grid>
-      <Grid container justify="center" alignItems="center">
-        <TextField
-          id="Last-Name"
-          label="Last Name"
-          className={classes.textField}
-          value={this.state.lastName}
           margin="normal"
           //variant="filled"
           InputProps={{ disableUnderline: true, }}

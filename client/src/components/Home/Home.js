@@ -6,6 +6,7 @@ import { Typography } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import CardMedia from '@material-ui/core/CardMedia';
+import { connect } from 'react-redux';
 
 const styles = theme => ({
   root: {
@@ -45,8 +46,6 @@ const styles = theme => ({
 });
 
 
-
-
 class Home extends Component {
 
   state = {
@@ -54,6 +53,12 @@ class Home extends Component {
     justify: 'center',
     alignItems: 'center',
   }
+
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push('/MainPage');
+    }
+  };
 
   handleChange = key => (event, value) => {
     this.setState({
@@ -99,7 +104,7 @@ class Home extends Component {
       </form>
 
       <Grid container justify="center" alignItems="center">
-        <Button  variant="contained" color="primary" className={classes.button} href='/Account'>
+        <Button  variant="contained" color="primary" className={classes.button} href='/Register'>
           Sign up (It's Free!)
         </Button>
       </Grid>
@@ -108,7 +113,7 @@ class Home extends Component {
       <br></br>
       <Grid container justify="center" alignItems="center">
         <Typography>Have an account?</Typography>
-        <a href='../SignIn'>&nbsp;Sign in</a>
+        <a href='../Login'>&nbsp;Sign in</a>
       </Grid>
       <br></br>
       {/* <Grid container justify="center" alignItems="center">
@@ -123,10 +128,12 @@ class Home extends Component {
 }
   Home.propTypes = {
     classes: PropTypes.object.isRequired,
+    auth: PropTypes.object.isRequired
   };
 
-export default withStyles(styles)(Home);
 
+const mapStateToProps = (state) => ({
+  auth: state.auth
+})
 
-
-
+export default connect(mapStateToProps)(withStyles(styles)(Home));

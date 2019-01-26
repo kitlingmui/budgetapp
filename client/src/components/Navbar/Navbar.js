@@ -22,6 +22,8 @@ import Tabs from '@material-ui/core/Tabs';
 import NoSsr from '@material-ui/core/NoSsr';
 import Tab from '@material-ui/core/Tab';
 import Catergories from './Catergories';
+import { connect } from 'react-redux';
+import { logoutUser } from '../../actions/authActions';
 
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -94,7 +96,7 @@ class NavBar extends Component {
     open: false,
     value: 0,
   };
-  
+
   handleChange = (event, value) => {
     this.setState({ value });
   };
@@ -116,25 +118,111 @@ class NavBar extends Component {
     this.setState({ open: false });
   };
 
-render () {
+  onLogooutClick(e) {
+    e.preventDefault();
+    this.props.logoutUser();
+  }
 
-  const { classes } = this.props;
-  const { open } = this.state;
-  const { value } = this.state;
+  render() {
+    const {isAuthenticated, user } = this.props.auth;
+
+
+    const { classes } = this.props;
+    const { open } = this.state;
+    const { value } = this.state;
+
+    const authLinks =(
+      <>
+        <div className={classes.root}>
+          <AppBar position="static">
+            <div>
+              <AppBar position="fixed" color="primary" className={classes.appBar}>
+                <Toolbar className={classes.toolbar}>
+                  <Button onClick={this.toggleDrawer('left', true)}><MenuIcon /></Button>
+                  <Typography className={classes.appName}>
+                    Piggy Bank
+                </Typography>
+                  <Button
+                    buttonRef={node => {
+                      this.anchorEl = node;
+                    }}
+                    aria-owns={open ? 'menu-list-grow' : undefined}
+                    aria-haspopup="true"
+                    onClick={this.handleToggle}
+                  >
+                    <Avatar alt="Remy Sharp" src={user.avatar} />
+                  </Button>
+                  <Popper open={open} anchorEl={this.anchorEl} transition disablePortal>
+                    {({ TransitionProps, placement }) => (
+                      <Grow
+                        {...TransitionProps}
+                        id="menu-list-grow"
+                        style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                      >
+                        <Paper>
+                          <ClickAwayListener onClickAway={this.handleClose}>
+                            <MenuList>
+                              <MenuItem><Link to='/AccountInfo'>My Account</Link></MenuItem>
+                              <MenuItem>
+                                <a href=" " onClick={this.onLogooutClick.bind(this)}>Logout</a>
+                              </MenuItem>
+                            </MenuList>
+                          </ClickAwayListener>
+                        </Paper>
+                      </Grow>
+                    )}
+                  </Popper>
+                </Toolbar>
+              </AppBar>
+              <SwipeableDrawer
+                open={this.state.left}
+                onClose={this.toggleDrawer('left', false)}
+                onOpen={this.toggleDrawer('left', true)}
+              >
+                <div
+                  tabIndex={0}
+                  role="button"
+                  x
+                  onKeyDown={this.toggleDrawer('left', false)}
+                >
+                  {sideList}
+                </div>
+
+              </SwipeableDrawer>
+            </div>
+          </AppBar>
+        </div>
+
+        <Paper className={classes.margin}>
+          <Tabs
+            value={this.state.value}
+            onChange={this.handleChange}
+            indicatorColor="primary"
+            textColor="primary"
+            centered
+          >
+            <Tab label="Budgets" href='/MainPage' />
+            <Tab label="Savings" href='/Savings' />
+            <Tab label="Spendings" href='/Spendings' />
+          </Tabs>
+        </Paper>
+
+      </>
+    )
 
     const sideList = (
       <div className={classes.list}>
         <List>
-        <Grid container justify="center" alignItems="center"> 
-          <img src="./images/piggy.jpg" alt='piggy'/>
-        </Grid>
+          <Grid container justify="center" alignItems="center">
+            <img src="./images/piggy.jpg" alt='piggy' />
+          </Grid>
         </List>
-        <Divider /> 
+        <Divider />
         <List>
-        {[<Link to='/AboutUs'>Calender</Link>, <Link to='/AboutUs'>Chart</Link>, <Link to='/AboutUs'>Budgets</Link>,<Link to='/AboutUs'>About Us</Link>].map((text, index) => (
+          {[<Link to='/AboutUs'>Calender</Link>, <Link to='/AboutUs'>Chart</Link>, <Link to='/AboutUs'>Budgets</Link>, <Link to='/AboutUs'>About Us</Link>].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index  === 0 ? <CalendarTodayIcon /> : index  === 1 ? <PieChartIcon /> : 
-              index === 2 ? <AttachMoneyIcon />  : index === 3 ?<AccountCircle /> : <AccountCircle />}</ListItemIcon>
+              <ListItemIcon>{index === 0 ? <CalendarTodayIcon /> : index === 1 ? <PieChartIcon /> :
+                index === 2 ? <AttachMoneyIcon /> : index === 3 ? <AccountCircle /> : <AccountCircle />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
@@ -142,87 +230,21 @@ render () {
 
       </div>
     );
-  return (
-    <>
-    <div className={classes.root}>
-      <AppBar position="static">
-          <div>
-        <AppBar position="fixed" color="primary" className={classes.appBar}>
-        <Toolbar className={classes.toolbar}>      
-          <Button onClick={this.toggleDrawer('left', true)}><MenuIcon /></Button>  
-          <Typography className={classes.appName}>
-          Piggy Bank
-          </Typography>
-          <Button
-            buttonRef={node => {
-              this.anchorEl = node;
-            }}
-            aria-owns={open ? 'menu-list-grow' : undefined}
-            aria-haspopup="true"
-            onClick={this.handleToggle}
-          >
-            <Avatar alt="Remy Sharp" src="./images/taylor.jpg"/>
-          </Button>
-          <Popper open={open} anchorEl={this.anchorEl} transition disablePortal>
-            {({ TransitionProps, placement }) => (
-              <Grow
-                {...TransitionProps}
-                id="menu-list-grow"
-                style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-              >
-                <Paper>
-                  <ClickAwayListener onClickAway={this.handleClose}>
-                    <MenuList>
-                      <MenuItem><Link to='/AccountInfo'>My Account</Link></MenuItem>
-                      <MenuItem><Link to='/'>Log Out</Link></MenuItem>
-                    </MenuList>
-                  </ClickAwayListener>
-                </Paper>
-              </Grow>
-            )}
-          </Popper>
-        </Toolbar>
-      </AppBar>
-        <SwipeableDrawer
-          open={this.state.left}
-          onClose={this.toggleDrawer('left', false)}
-          onOpen={this.toggleDrawer('left', true)}
-        >
-          <div
-            tabIndex={0}
-            role="button"
-          x
-            onKeyDown={this.toggleDrawer('left', false)}
-          >
-            {sideList}
-          </div>
-          
-        </SwipeableDrawer>   
-      </div>
-      </AppBar>
-    </div>
-    
-    <Paper className={classes.margin}>
-        <Tabs
-          value={this.state.value}
-          onChange={this.handleChange}
-          indicatorColor="primary"
-          textColor="primary"
-          centered
-        >
-          <Tab  label="Budgets" href='/MainPage' />
-          <Tab label="Savings" href='/Savings'/>
-          <Tab label="Spendings" href='/Spendings'/>
-        </Tabs>
-      </Paper>
-    
-</>
-  );
-}
+    return (
+      isAuthenticated ? authLinks: null
+    );
+  }
 }
 
 NavBar.propTypes = {
   classes: PropTypes.object.isRequired,
+  logoutUser: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(NavBar);
+const mapStateToProps = (state) => ({
+  auth: state.auth
+});
+
+
+export default connect(mapStateToProps, { logoutUser })(withStyles(styles)(NavBar));
