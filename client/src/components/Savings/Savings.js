@@ -13,8 +13,6 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import Moment from 'moment';
 import TextField from '@material-ui/core/TextField';
 import { getBudget } from "../../utils/API";
-import { getmyBudget } from "../../utils/API";
-import { getuserBudget } from "../../utils/API";
 
 
 const styles = theme => ({
@@ -78,20 +76,8 @@ class Savings extends Component{
     }
 
    // load all budgets when page up
-   componentWillMount() {
-   this.getuserBudget(this.state.selectedusername)   
+   componentWillMount() {  
    }
-  
-   // Get user's budget 
-   getusersbudget = (user) => {
-    getuserBudget(user)
-      .then(res => {
-            let budgets = []
-            budgets.push(res.data)
-            this.setState({budgets})
-      })
-      .catch(err => console.log(err)) 
-  }
   
   //Handle when Date change
   handleDateChange = event => {
