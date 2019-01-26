@@ -69,7 +69,7 @@ class User extends Component {
   return (
       <>
     <Grid container justify="center" alignItems="center">
-      <Avatar alt="Remy Sharp" src="./images/taylor.jpg" className={classes.bigAvatar} />
+      <Avatar alt="Remy Sharp" src="./images/taylor2.jpg" className={classes.bigAvatar} />
     </Grid>
     <hr/>
     <form className={classes.container} noValidate autoComplete="off">

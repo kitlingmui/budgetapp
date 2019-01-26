@@ -158,7 +158,7 @@ render () {
             aria-haspopup="true"
             onClick={this.handleToggle}
           >
-            <Avatar alt="Remy Sharp" src="./images/taylor.jpg"/>
+            <Avatar alt="Remy Sharp" src="./images/taylor2.jpg"/>
           </Button>
           <Popper open={open} anchorEl={this.anchorEl} transition disablePortal>
             {({ TransitionProps, placement }) => (
