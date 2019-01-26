@@ -123,14 +123,14 @@ render () {
   const { open } = this.state;
 
     const sideList = (
-      <div className={classes.list}>
-        <List>
+     <>
+        <List >
         <Grid container justify="center" alignItems="center"> 
           <img src="./images/newpiggy.png" alt='piggy'/>
         </Grid>
         </List>
         <Divider /> 
-        <List>
+        <List >
         {[<Link to='/AboutUs'>Calender</Link>, <Link to='/AboutUs'>Chart</Link>, <Link to='/AboutUs'>Budgets</Link>,<Link to='/AboutUs'>About Us</Link>].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index  === 0 ? <CalendarTodayIcon /> : index  === 1 ? <PieChartIcon /> : 
@@ -139,13 +139,12 @@ render () {
             </ListItem>
           ))}
         </List>
-
-      </div>
+      </>
     );
   return (
     <>
       <AppBar position="static">
-        <AppBar position="fixed" color="primary" className={classes.appBar}>
+        <AppBar position="fixed" color="primary" className={classes.appBar} >
         <Toolbar className={classes.toolbar}>      
           <Button onClick={this.toggleDrawer('left', true)}><MenuIcon /></Button>  
           <Typography className={classes.appName}>
@@ -181,7 +180,8 @@ render () {
           </Popper>
         </Toolbar>
       </AppBar>
-        <SwipeableDrawer
+        <SwipeableDrawer 
+        
           open={this.state.left}
           onClose={this.toggleDrawer('left', false)}
           onOpen={this.toggleDrawer('left', true)}
@@ -199,8 +199,8 @@ render () {
       </AppBar>
     
     
-    <Paper className={classes.margin}>
-        <Tabs
+    <Paper className={classes.margin} >
+        <Tabs 
           value={this.state.value}
           onChange={this.handleChange}
           indicatorColor="primary"
