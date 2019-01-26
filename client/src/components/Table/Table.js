@@ -88,7 +88,6 @@ class Table extends Component {
   }
 
   componentDidUpdate() {
-    
   }
 
 
@@ -131,18 +130,12 @@ class Table extends Component {
       .catch(err => console.log(err)) 
   }
 
-
   // Update budget
-  updatebudget = id => {  
+  updatebudget = (id, budget) => {  
     console.log('update my budget income')
     console.log(id)
-    updatemyBudget(id)
-      .then(res => {
-        console.log(res.data)
-        let budgets = []
-        budgets.push(res.data)
-        this.setState({budgets})
-      } )
+    updatemyBudget(id, budget)
+      .then(res => {} )
       .catch(err => console.log(err))
   }
 
@@ -199,38 +192,52 @@ class Table extends Component {
     this.getallbudget()            
   }
 
+  
+  handleIncomeAsync = async function (e, index, budgetid) {
+    let response = await new Promise((resolve, reject) => {
+      console.log(e.target.value)
+      let budgets = this.state.budgets
+      budgets[index].income = e.target.value
+      this.setState({budgets: budgets})
+      resolve(true)
+    })
+    return response
+  }
+
+  handleExpenseAsync = async function (e, index, eindex, budgetid) {
+    let response = await new Promise((resolve, reject) => {
+      console.log(e.target.value)
+      let budgets = this.state.budgets
+      budgets[index].expenses[eindex].budgetamt = e.target.value
+      this.setState({budgets: budgets})
+      resolve(true)
+    })
+    return response
+  }
 
   // Handle when income change
 
   handleIncomeChange = (e, index, budgetid) => {
-    console.log("update income change")
+    // console.log("update income change")
     let budgets = this.state.budgets
     budgets[index].income = e.target.value
-    this.setState({budgets})
+    this.setState({budgets: budgets})
     this.updatebudget(budgetid)
-    console.log('Input income:' + e.target.value)
-    console.log("id:" + budgetid)
-    console.log('index' + index)
-    console.log(this.state.budgets)
+    // console.log('Input income:' + e.target.value)
+    // console.log("id:" + budgetid)
+    // console.log('index' + index)
+    // console.log(this.state.budgets)
   }
 
   handelExpenseChange = (e, bindex, eindex) => {
     let budgets = this.state.budgets
+    console.log('target' + e.target.value)
+    console.log(budgets[bindex].expenses[eindex].budgetamt)
     budgets[bindex].expenses[eindex].budgetamt = e.target.value
     this.setState({budgets})
     console.log('Input expense value:' + e.target.value)
   }
 
-
-  // Delete expense from budget
-  deletemyExpense = (bid, bIndex, index) => {
-    console.log("delete expense")
-    let budgets = this.state.budgets
-    budgets[bIndex].expenses.slice(index+1)
-    this.setState({budgets})
-    console.log(budgets)
-    this.updatebudget(bid)
-  }
 
   // Handle selected expense action
   handleListItemClick = (event, index) => {
@@ -262,7 +269,8 @@ class Table extends Component {
         <List subheader={<ListSubheader className={classes.title}>Enter Your Monthly Income</ListSubheader>}>
           {
             this.state.budgets.length > 0 ?
-              this.state.budgets.map((budget, bIndex) => {
+              this.state.budgets.map((budget, bIndex, budgets) => {
+                if (bIndex === 0) { console.log(budgets)}
                 return (
                 <ListItem>
                   <TextField
@@ -278,7 +286,12 @@ class Table extends Component {
                     }}
                     margin="normal"
                     value={budget.income}
-                    onChange={event => this.handleIncomeChange(event, bIndex, budget._id)}
+                    onChange={event => {
+                      this.handleIncomeAsync(event, bIndex, budget._id)
+                        .then(r => {
+                          this.updatebudget(budget._id, budget)
+                        })
+                    }}
                 />
                 </ListItem>
                 )
@@ -304,7 +317,11 @@ class Table extends Component {
                     label=""
                     name="budgetamt"
                     value={expense.budgetamt}
-                    onChange={event => this.handelExpenseChange(event, bIndex, index)}                  
+                    onChange={event => this.handleExpenseAsync(event, bIndex, index, budget._id)
+                                .then(r => {
+                                  this.updatebudget(budget._id, budget)
+                                })
+                              }                  
                     type="number"
                     className={classes.textField}
                     InputLabelProps={{ shrink: true, }}
@@ -314,9 +331,6 @@ class Table extends Component {
                     }}
                     margin="normal"
                   />
-                  {/* <ListItemIcon>
-                    <DeleteIcon className={classes.logo} onClick={() => this.deletemyExpense(budget._id, bIndex, index)} />
-                  </ListItemIcon> */}
                 </ListItem>
                 : null)
             )

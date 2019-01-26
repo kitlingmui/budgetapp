@@ -14,6 +14,14 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  getuserbudget: function(req, res) {
+    db.Budget
+      .find({
+        username: req.params.username,
+      })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   getonebudget: function(req, res) {
     db.Budget
       .findOne({
@@ -31,9 +39,15 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   updatebudget: function(req, res) {
+    // console.log('from front')
+    // console.log(req.body)
     db.Budget
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
+      .replaceOne({ _id: req.params.id }, req.body)
+      .then(dbModel => {
+        // console.log('from back')
+        // console.log(dbModel)
+        res.json(dbModel)
+      })
       .catch(err => res.status(422).json(err));
   },
 };
