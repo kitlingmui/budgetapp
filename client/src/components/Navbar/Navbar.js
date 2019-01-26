@@ -65,7 +65,7 @@ const styles = theme => ({
   },
   list: {
     width: 200,
-    
+    backgroundColor: theme.palette.background.paper,
   },
 
   fullList: {
