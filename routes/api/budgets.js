@@ -8,6 +8,9 @@ router.route("/createbudget")
 router.route("/getbudget")
     .get(budgetsControllers.getbudget)
 
+router.route("/getbudget/:username")
+    .get(budgetsControllers.getuserbudget)    
+
 router.route("/getmybudget/:username/:month/:year")
     .get(budgetsControllers.getonebudget)
 
