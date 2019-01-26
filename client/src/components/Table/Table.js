@@ -9,7 +9,7 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import Divider from '@material-ui/core/Divider';
 import DeleteIcon from '@material-ui/icons/Delete';
 import DoneIcon from '@material-ui/icons/Done';
-// import TextInput from '../textInput/textInput';
+import TextInput from '../textInput/textInput';
 import TextField from '@material-ui/core/TextField';
 
 import { InputAdornment } from '@material-ui/core';
