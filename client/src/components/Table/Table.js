@@ -69,75 +69,22 @@ class Table extends Component {
                       }
                     ],             
     budgets: [], 
-    allbudgets: [],
-    setbudgets: [],           
+    allbudgets: [],          
   };
 
-  // checkexist = () => {
-  //   console.log(' cal checkexist')
-  //   console.log(this.state.budgets)
-  //   console.log(this.state.budgets.length)
-
-  //   for (let i = 0; i < this.state.mbudgets.length; i++) {
-  //     this.state.budgets[i] = this.state.mbudgets[i]
-  //     console.log('in loop i')
-  //   }
-
-  //   // if (this.state.budgets.length === 0) {
-  //   //   this.createmybudget(this.state.initialbudgets)
-  //   // }
-  // }
 
   // load all budgets when page up
   componentWillMount() {
-    this.state.allbudgets = []
-    this.getallbudget()
-    console.log(this.state.allbudgets)
-    let isExist = false
-    for (let i = 0; i < this.state.allbudgets.length; i++) {
-      if ( (this.state.allbudgets[i].month == this.state.selectedmonth ) &&
-           (this.state.allbudgets[i].year == this.state.selecteyear ) )
-      {
-        isExist = true;
-      }
-    }
-
-    if (!isExist) {
-      console.log(this.state.selectedyear)
-      console.log(this.state.selectedmonth)
-      console.log(this.state.budgets)
-      let newbudgets = [{
-                          username: this.state.selectedusername,
-                          month: this.state.selectedmonth,
-                          year:  this.state.selectedyear,  
-                          income: 0,
-                          expenses: [
-                                      {
-                                        catagory: 'Rent',
-                                        budgetamt: 0
-                                      },
-                                      {
-                                        catagory: 'Utilites',
-                                        budgetamt: 0
-                                      },
-                                      {
-                                        catagory: 'Car Insurance',
-                                        budgetamt: 0
-                                      },
-                                    ]
-                      }]
-      this.createmybudget(newbudgets)
-    }
+    this.getonebudget(this.state.selectedusername, this.state.selectedmonth, this.state.selectedyear) 
   }
+
 
   // When the component mounts, load budget
-  componentDidMount = () => {
+  componentDidMount() {
+    this.getallbudget()    
   }
 
-  componentDidUpdate() {
-  }
-
-
+ 
   // initial create budget when no budget find
   createmybudget = bg => {
     createBudget(bg)
@@ -149,7 +96,7 @@ class Table extends Component {
   getallbudget = () => {
     getBudget()
       .then(res => {
-        this.setState({ allbudgets: [...res.data]})
+        this.setState({allbudgets: res.data})
       })
       .catch(err => console.log(err))
   };
@@ -158,7 +105,6 @@ class Table extends Component {
   getonebudget = (user, month, year) => {
     getmyBudget(user, month, year)
       .then(res => {
-            console.log(res.data)
             let budgets = []
             budgets.push(res.data)
             this.setState({budgets})
@@ -195,51 +141,46 @@ class Table extends Component {
     this.state.selectedmonth = Moment(value).format("MM")
     this.state.selectedyear = Moment(value).format("YYYY")
     
-    this.state.allbudgets = []
-    this.getallbudget()
-    console.log(this.state.allbudgets)
     let isExist = false
-    for (let i = 0; i < this.state.allbudgets.length; i++) {
-      if ( (this.state.allbudgets[i].month == this.state.selectedmonth ) &&
-           (this.state.allbudgets[i].year == this.state.selecteyear ) )
+    for (let i=0; i<this.state.allbudgets.length; i++){
+      if ( (this.state.allbudgets[i].month == this.state.selectedmonth) && 
+           (this.state.allbudgets[i].year == this.state.selectedyear))
       {
-        isExist = true;
-        // console.log(this.state.allbudgets[i].month)
-        // console.log(this.state.selectedmonth)
-        // console.log(this.state.allbudgets[i].year)
-        // console.log(this.state.selectedyear)
-        // console.log('true')
+        isExist = true
       }
     }
 
     if (isExist) {
-      this.getonebudget(this.state.selectedusername, this.state.selectedmonth, this.state.selectedyear)
+      this.getonebudget(this.state.selectedusername, this.state.selectedmonth, this.state.selectedyear)  
     }
     else {
-      let newbudgets = [{
-                          username: this.state.selectedusername,
-                          month: this.state.selectedmonth,
-                          year:  this.state.selectedyear,  
-                          income: 0,
-                          expenses: [
-                                      {
-                                        catagory: 'Rent',
-                                        budgetamt: 0
-                                      },
-                                      {
-                                        catagory: 'Utilites',
-                                        budgetamt: 0
-                                      },
-                                      {
-                                        catagory: 'Car Insurance',
-                                        budgetamt: 0
-                                      },
-                                    ]
-                      }]
-      this.createmybudget(newbudgets)
-      // this.getonebudget(this.state.selectedusername, this.state.selectedmonth, this.state.selectedyear)                 
+      console.log('need to create budget for new month')
+      let tempbudgets =  [ {
+                            username: 'team6',
+                            month: this.state.selectedmonth,
+                            year: this.state.selectedyear,   
+                            income: 0,
+                            expenses: [
+                                        {
+                                          catagory: 'Rent',
+                                          budgetamt: 0
+                                        },
+                                        {
+                                          catagory: 'Utilites',
+                                          budgetamt: 0
+                                        },
+                                        {
+                                          catagory: 'Car Insurance',
+                                          budgetamt: 0
+                                        },
+                                      ]
+                            }
+                          ]       
+      this.createmybudget(tempbudgets)
     }
-  };
+    this.getallbudget()            
+  }
+
 
 
   // Handle when income change
@@ -259,8 +200,7 @@ class Table extends Component {
 
   render() {
     const { classes } = this.props;
-    const { selectedIndex, selectedusername, selecteddate, selectedmonth, selectedyear } = this.state;
- 
+
     return (
       <div className={classes.root}>
         <List subheader={<ListSubheader className={classes.title}>Select Your Budget Month</ListSubheader>}>
