@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
 import BottomNav from '../BottomNav';
 import Table from '../Table'
+import NavBar from '../Navbar'
 
 
 
@@ -54,9 +55,7 @@ class MainPage extends Component {
   const { classes } = this.props;
   return (
     <>
-      
-      <Grid container justify="center" alignItems="center">      
-      </Grid>
+      <NavBar />
       <Grid container justify="center" alignItems="center">      
       </Grid>
       <Grid container justify="center" alignItems="center" > 

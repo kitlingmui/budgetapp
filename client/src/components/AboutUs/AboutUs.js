@@ -9,6 +9,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import NavBar from '../Navbar'
 
 const styles = theme => ({
   root: {
@@ -40,6 +41,7 @@ function MediaCard(props) {
   const { classes } = props;
   return (
     <>
+    <NavBar />
   <div className={classes.root.heroUnit}>
           <div className={classes.root.heroContent}>
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
