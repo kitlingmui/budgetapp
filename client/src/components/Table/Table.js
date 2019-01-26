@@ -18,6 +18,7 @@ import Moment from 'moment';
 import Grid from '@material-ui/core/Grid';
 import AddTable from './AddTable'
 import Button from '@material-ui/core/Button';
+
 const styles = theme => ({
   root: {
     width: '100%',
@@ -75,10 +76,9 @@ class Table extends Component {
   // load all budgets when page up
   
   componentWillMount() {
-
     // this.createmybudget(this.state.initialbudgets)
-    // this.getonebudget(this.state.selectedusername, this.state.selectedmonth, this.state.selectedyear) 
-    this.getallbudget()   
+    this.getallbudget()  
+    this.getonebudget(this.state.selectedusername, this.state.selectedmonth, this.state.selectedyear) 
   }
 
   // When the component mounts, load budget
@@ -90,15 +90,15 @@ class Table extends Component {
   componentDidUpdate() {
   }
 
-
   update = () => {
     console.log(this.props.value);
     if (this.props.value != null)
     {
-      this.state.initialbudgets[0].expenses.push(this.props.value) ;
+      this.state.budgets[0].expenses.push(this.props.value) ;
     }
     else{}
-    console.log(this.state.initialbudgets) ;
+      console.log(this.state.budgets[0]) ;
+
   }
 
   // initial create budget when no budget find
@@ -335,11 +335,8 @@ class Table extends Component {
                 : null)
             )
           }
-        </List>
-
-        <Button color="secondary" onClick={this.update}>
-                Update
-        </Button>
+        <Button color="secondary" onClick={this.update}>Update</Button>
+        </List> 
       </div>
 
  )}  
