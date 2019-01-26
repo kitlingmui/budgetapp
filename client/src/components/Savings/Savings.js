@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import NavBar from '../Navbar'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Chart from '../Chart';
 import BottomNav from '../BottomNav';
+import NavBar from '../Navbar'
+import { Doughnut } from "react-chartjs-2";
+import { MDBContainer } from "mdbreact";
+import { Typography } from "@material-ui/core";
+
 
 
 const styles = theme => ({
@@ -38,6 +41,24 @@ const styles = theme => ({
 });
 
 class Savings extends Component{
+    state = {
+      dataDoughnut: {
+        labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
+        datasets: [
+          {
+            data: [300, 50, 100, 40, 120],
+            backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+            hoverBackgroundColor: [
+              "#FF5A5E",
+              "#5AD3D1",
+              "#FFC870",
+              "#A8B3C5",
+              "#616774"
+            ]
+          }
+        ]
+      }
+    }
 
     render() {
 
@@ -50,7 +71,11 @@ class Savings extends Component{
       <h1>Savings</h1>
       </Grid>
         <Grid container justify="center" alignItems="center"> 
-          <Chart />
+            <Grid container justify="center" alignItems="center">
+              <MDBContainer>
+                <Doughnut data={this.state.dataDoughnut} options={{ responsive: true }} />
+              </MDBContainer>
+            </Grid>
         </Grid>
         <Grid container justify="center" alignItems="center"> 
           <BottomNav />

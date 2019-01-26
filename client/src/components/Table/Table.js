@@ -72,19 +72,21 @@ class Table extends Component {
   };
 
 
-
   // load all budgets when page up
   componentWillMount() {
-    this.getonebudget(this.state.selectedusername, this.state.selectedmonth, this.state.selectedyear) 
+        
   }
-
 
   // When the component mounts, load budget
   componentDidMount() {
-    this.getallbudget()    
+    this.getallbudget()  
+    this.getonebudget(this.state.selectedusername, this.state.selectedmonth, this.state.selectedyear)   
   }
 
- 
+  componentDidUpdate() {
+    
+  }
+
   // initial create budget when no budget find
   createmybudget = bg => {
     createBudget(bg)
@@ -114,9 +116,16 @@ class Table extends Component {
 
 
   // Update budget
-  updatebudget = (id) => {
+  updatebudget = id => {
+    console.log('update my budget income')
+    console.log(id)
     updatemyBudget(id)
-      .then(res => this.setState({ budgets: res.data }))
+      .then(res => {
+        console.log(res.data)
+        let budgets = []
+        budgets.push(res.data)
+        this.setState({budgets})
+      } )
       .catch(err => console.log(err))
   }
 
@@ -127,7 +136,6 @@ class Table extends Component {
       .then(console.log("delete:" + id))
       .catch(err => console.log(err));
   };
-
 
 
   //Handle when Date change
@@ -154,7 +162,7 @@ class Table extends Component {
       this.getonebudget(this.state.selectedusername, this.state.selectedmonth, this.state.selectedyear)  
     }
     else {
-      console.log('need to create budget for new month')
+      console.log('Need to create budget for new selected month')
       let tempbudgets =  [ {
                             username: 'team6',
                             month: this.state.selectedmonth,
@@ -182,20 +190,18 @@ class Table extends Component {
   }
 
 
-
   // Handle when income change
-      // const { name, value } = event.target;
-    // this.setState({
-    //   [name]: value
-    // });
-  handleIncomeChange = (e, index) => {
+  handleIncomeChange = (e, index, budgetid) => {
     console.log("update income change")
     let budgets = this.state.budgets
     budgets[index].income = e.target.value
     this.setState({budgets})
+    this.updatebudget(budgetid)
     console.log('Input income:' + e.target.value)
+    console.log("id:" + budgetid)
+    console.log('index' + index)
+    console.log(this.state.budgets)
   }
-
 
   handelExpenseChange = (e, bindex, eindex) => {
     let budgets = this.state.budgets
@@ -251,7 +257,7 @@ class Table extends Component {
                     }}
                     margin="normal"
                     value={budget.income}
-                    onChange={event => this.handleIncomeChange(event, bIndex)}
+                    onChange={event => this.handleIncomeChange(event, bIndex, budget._id)}
                 />
                 </ListItem>
                 )
