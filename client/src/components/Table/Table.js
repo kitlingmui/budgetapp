@@ -74,9 +74,8 @@ class Table extends Component {
   // load all budgets when page up
   componentWillMount() {
     // this.createmybudget(this.state.initialbudgets)
-    // this.getonebudget(this.state.selectedusername, this.state.selectedmonth, this.state.selectedyear) 
-
-    this.getallbudget()   
+    this.getallbudget()  
+    this.getonebudget(this.state.selectedusername, this.state.selectedmonth, this.state.selectedyear) 
   }
 
   // When the component mounts, load budget
