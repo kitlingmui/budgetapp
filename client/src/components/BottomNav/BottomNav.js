@@ -118,14 +118,14 @@ class FullScreenDialog extends React.Component {
           </AppBar>
           <DialogContent>
             <DialogContentText>
-              Please add in your budget
+              Please add in your expenses
             </DialogContentText>
             <DayPicker canChangeDate={false} />
              <TextField
               autoFocus
               margin="dense"
               id="budgetamt"
-              label="budgetamt"
+              label="Amount"
               type="number"
               name="budgetamt"
               value={this.state.abudgetamt} 
@@ -138,7 +138,7 @@ class FullScreenDialog extends React.Component {
               autoFocus
               margin="dense"
               id="catagory"
-              label="Name"
+              label="Category"
               type="string"
               name="catagory"
               value={this.state.catagory} 
