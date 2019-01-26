@@ -184,13 +184,24 @@ class Table extends Component {
 
 
   // Handle when income change
-  handleIncomeChange = event => {
+      // const { name, value } = event.target;
+    // this.setState({
+    //   [name]: value
+    // });
+  handleIncomeChange = (e, index) => {
     console.log("update income change")
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
+    let budgets = this.state.budgets
+    budgets[index].income = e.target.value
+    this.setState({budgets})
+    console.log('Input income:' + e.target.value)
+  }
 
+
+  handelExpenseChange = (e, bindex, eindex) => {
+    let budgets = this.state.budgets
+    budgets[bindex].expenses[eindex].budgetamt = e.target.value
+    this.setState({budgets})
+    console.log('Input expense value:' + e.target.value)
   }
 
   // Handle selected expense action
@@ -240,7 +251,7 @@ class Table extends Component {
                     }}
                     margin="normal"
                     value={budget.income}
-                    onChange={() => this.handleIncomeChange()}
+                    onChange={event => this.handleIncomeChange(event, bIndex)}
                 />
                 </ListItem>
                 )
@@ -266,12 +277,7 @@ class Table extends Component {
                     label=""
                     name="budgetamt"
                     value={expense.budgetamt}
-                    onChange={e => {
-                      let budgets = this.state.budgets
-                      budgets[bIndex].expenses[index].budgetamt = e.target.value
-                      // expenses.budgetamt = e.target.value
-                      this.setState({budgets})
-                    }}
+                    onChange={event => this.handelExpenseChange(event, bIndex, index)}                  
                     type="number"
                     className={classes.textField}
                     InputLabelProps={{ shrink: true, }}
