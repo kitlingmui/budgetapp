@@ -47,20 +47,25 @@ function Transition(props) {
 class FullScreenDialog extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {expense: '', amount: ''};
+    this.state = {expense: '', amount: '', value: ''};
 
      this.handleChange = this.handleChange.bind(this);
      this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = (event) => {
-    this.setState({expense: event.target.expense,amount: event.target.amount});
+    this.setState({[event.target.name]: event.target.value });
+    console.log(event.target.amount)
+    console.log(event.target.expense)
+    console.log(event.target.value)
   }
   handleSubmit = (event) =>{
     event.preventDefault();
     var item = {expense: this.state.expense,
                 amount: this.state.amount}
     console.log(item)
+    alert('A name was submitted: ' + this.state.expense1);
+    //console.log(this.state.expense)
 
     }
   state = {
@@ -103,10 +108,12 @@ class FullScreenDialog extends React.Component {
               <Typography variant="h6" color="inherit" className={classes.flex}>
                 Budget
               </Typography>
+              <form onSubmit={this.onSubmit}>
               <Button color="inherit" onClick={this.handleClose}>
                 save
               </Button>
-            </Toolbar>
+              </form>
+            </Toolbar>  
           </AppBar>
           <DialogContent>
             <DialogContentText>
@@ -119,9 +126,9 @@ class FullScreenDialog extends React.Component {
               id="amount"
               label="Amount"
               type="number"
+              name="amount"
               value={this.state.amount} 
               onChange={this.handleChange}
-              fullWidth
               InputProps={{ disableUnderline: true }}
               InputLabelProps={{ shrink: true }}
               fullWidth
@@ -129,9 +136,10 @@ class FullScreenDialog extends React.Component {
              <TextField
               autoFocus
               margin="dense"
-              id="name"
+              id="expense"
               label="Name"
               type="string"
+              name="expense"
               value={this.state.expense} 
               onChange={this.handleChange}
               InputLabelProps={{ shrink: true }}
