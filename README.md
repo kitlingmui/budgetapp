@@ -10,3 +10,6 @@ Taylor Darnell
 ## About This Budget App
 
 Taylor Darnell was responsible for the front end development and design of this aplication, making it mobile first and setting the proper routes between pages.
+
+Languages used:
+HTML5, CSS3, Material UI, Material Design, Materialize, and Express.
